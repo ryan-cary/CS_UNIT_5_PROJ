@@ -18,14 +18,9 @@ public class Launcher : MonoBehaviour
     [Header("Launch Parameters")]
     [SerializeField] private float maxForce = 15.0f;
     [SerializeField] private float minForce = 8.0f;
-    [SerializeField] private float maxangle;
+    //[SerializeField] private float maxangle;
 
     private float _timer;
-
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {
