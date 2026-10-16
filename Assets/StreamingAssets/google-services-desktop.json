@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "5218736765",
+    "project_id": "cs-unit5-firebase",
+    "firebase_url": "https://cs-unit5-firebase-default-rtdb.firebaseio.com/",
+    "storage_bucket": "cs-unit5-firebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5218736765:android:cea6744d5278eb5afc2f14",
+        "android_client_info": {
+          "package_name": "com.ryancary.fruitninjaclone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm1uK1FHMgUiVhMnAb8dqTfPa31UDxhzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
