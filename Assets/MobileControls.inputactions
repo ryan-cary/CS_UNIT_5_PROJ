@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "MobileControls",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "7c588693-11fe-48bb-b893-7fcc8325ced3",
+            "actions": [
+                {
+                    "name": "OnPointerPosition",
+                    "type": "Value",
+                    "id": "4dc4c267-b9c4-4422-9e9f-7fbad1d9d867",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "OnPointerPressed",
+                    "type": "Button",
+                    "id": "9f1457a8-046a-47e1-9d41-0a0918715609",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "39aa1322-1c8a-4434-a33d-8be7e720ae95",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnPointerPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e372f9e8-b2a8-414f-ac7f-901d311ff6d8",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnPointerPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
