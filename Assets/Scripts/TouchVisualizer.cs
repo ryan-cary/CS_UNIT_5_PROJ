@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +6,7 @@ public class TouchVisualizer : MonoBehaviour
     [SerializeField] private GameObject startPrefab;
     [SerializeField] private GameObject endPrefab;
 
-    new private Camera _camera;
+    private Camera _camera;
 
     private Vector2 _curPos;
     
@@ -42,12 +40,5 @@ public class TouchVisualizer : MonoBehaviour
     public void OnPointerPosition(InputAction.CallbackContext ctx)
     {
         _curPos = ctx.action.ReadValue<Vector2>();
-    }
-
-    private IEnumerator RemoveIndicators(GameObject start, GameObject end)
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(start);
-        Destroy(end);
     }
 }
