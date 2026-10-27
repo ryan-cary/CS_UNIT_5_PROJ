@@ -22,7 +22,7 @@ public class Launcher : MonoBehaviour
     [Header("Launch Parameters")]
     [SerializeField] private float maxForce = 15.0f;
     [SerializeField] private float minForce = 8.0f;
-    //[SerializeField] private float maxangle;
+    [SerializeField] private float maxAngle = 10.0f;
 
     private float _timer;
 
@@ -61,14 +61,28 @@ public class Launcher : MonoBehaviour
         GameObject fruit = Instantiate(prefab, GetSpawnLocation(), Quaternion.identity);
         
         //Get random rotation
-        //TODO get rotation vector
+        float angle = Random.Range(0, maxAngle);
+        if (IsOnRightSide(fruit))
+            angle = -angle;
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        
+        //Build vector
+        Vector3 launchAngle = rotation * Vector2.up;
         
         //Get random launch force
         float force = Random.Range(minForce, maxForce);
         
         // Launch prefab
-        fruit.GetComponent<Rigidbody2D>().AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        fruit.GetComponent<Rigidbody2D>().AddForce(launchAngle * force, ForceMode2D.Impulse);
 
         _timer = 0;
+    }
+
+    private bool IsOnRightSide(GameObject fruit)
+    {
+        if (fruit.transform.position.x < 0)
+            return true;
+
+        return false;
     }
 }

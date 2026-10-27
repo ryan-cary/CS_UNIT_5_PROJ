@@ -54,3 +54,4 @@ MonoBehaviour:
   horizontalPadding: 1
   maxForce: 15
   minForce: 8
+  maxAngle: 20
