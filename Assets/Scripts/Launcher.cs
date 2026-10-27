@@ -62,7 +62,7 @@ public class Launcher : MonoBehaviour
         
         //Get random rotation
         float angle = Random.Range(0, maxAngle);
-        if (IsOnRightSide(fruit))
+        if (IsOnLeftSide(fruit))
             angle = -angle;
         Quaternion rotation = Quaternion.Euler(0, 0, angle);
         
@@ -78,7 +78,7 @@ public class Launcher : MonoBehaviour
         _timer = 0;
     }
 
-    private bool IsOnRightSide(GameObject fruit)
+    private bool IsOnLeftSide(GameObject fruit)
     {
         if (fruit.transform.position.x < 0)
             return true;
