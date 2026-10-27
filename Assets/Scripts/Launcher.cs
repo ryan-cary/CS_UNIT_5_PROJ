@@ -10,6 +10,10 @@ public class Launcher : MonoBehaviour
 {
     [SerializeField] private Launchable[] launchableObjects;
 
+    [Header("Bomb")] 
+    [SerializeField] private GameObject bombPrefab;
+    [SerializeField][Range(0,0.5f)] private float bombChance;
+
     [Header("Spawn Parameters")] 
     [SerializeField] private float spawnFrequency = 1.0f;
     [SerializeField] private float verticalOffset = -1.0f;
@@ -27,12 +31,19 @@ public class Launcher : MonoBehaviour
         _timer += Time.deltaTime;
 
         if (_timer > spawnFrequency)
-            SpawnFruit(launchableObjects[0].prefab);
+            SpawnFruit(GetFruitToSpawn());
     }
 
-    private void GetFruitToSpawn()
+    private GameObject GetFruitToSpawn()
     {
+        float f = Random.Range(0f, 1f);
+        if (f < bombChance)
+        {
+            return bombPrefab;
+        }
         
+        int index = Random.Range(0, launchableObjects.Length);
+        return launchableObjects[index].prefab;
     }
 
     private Vector2 GetSpawnLocation()

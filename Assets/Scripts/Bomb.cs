@@ -17,7 +17,13 @@ public class Bomb : MonoBehaviour, ISliceable
     public void OnSliced()
     {
         // Explosion sound effect / animation
+        //TODO explosion sound effect
+        //TODO explosion visual effect
+        
         // Destroy all fruit on screen (but not as sliced)
+        //TODO destroy all fruit
+        
         // Deduct score
+        //TODO deduct score
     }
 }
