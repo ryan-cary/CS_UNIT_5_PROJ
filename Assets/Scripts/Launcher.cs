@@ -28,10 +28,13 @@ public class Launcher : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        if (GameManager.Instance.State == GameState.Play)
+        {
+            _timer += Time.deltaTime;
 
-        if (_timer > spawnFrequency)
-            SpawnFruit(GetFruitToSpawn());
+            if (_timer > spawnFrequency)
+                SpawnFruit(GetFruitToSpawn());
+        }
     }
 
     private GameObject GetFruitToSpawn()

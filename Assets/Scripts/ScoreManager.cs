@@ -62,7 +62,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void GameOver()
     {
-        FindFirstObjectByType<Launcher>().gameObject.SetActive(false); //TODO do this in a more elegant way
+        GameManager.Instance.ChangeGameState(GameState.GameOver);
         Debug.Log("Game Complete!");
     }
 }
