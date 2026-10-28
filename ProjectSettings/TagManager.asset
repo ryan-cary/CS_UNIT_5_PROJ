@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Debug
+  - Bomb
+  - Fruit
   layers:
   - Default
   - TransparentFX
