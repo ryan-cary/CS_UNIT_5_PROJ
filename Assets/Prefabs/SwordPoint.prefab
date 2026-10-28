@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6155666350262078714}
   - component: {fileID: 5784266914000712182}
   - component: {fileID: -4419272425844050200}
+  - component: {fileID: -36965974780782460}
   m_Layer: 0
   m_Name: SwordPoint
   m_TagString: Untagged
@@ -262,3 +263,15 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
+--- !u!114 &-36965974780782460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3771754299886917335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f179d80e0143d2d4f854ae26bb617299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
