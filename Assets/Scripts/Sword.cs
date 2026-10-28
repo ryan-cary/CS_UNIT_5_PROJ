@@ -48,7 +48,7 @@ public class Sword : MonoBehaviour
         if (_isTouching)
         {
             Vector3 newPos = new Vector3(pos.x, pos.y, 0);
-            _swordPoint.transform.position = _camera.ScreenToWorldPoint(newPos);   
+            _swordPoint.transform.position = (Vector2)_camera.ScreenToWorldPoint(newPos);   
         }
     }
 }
