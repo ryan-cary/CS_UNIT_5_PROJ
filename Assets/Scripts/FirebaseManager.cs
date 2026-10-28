@@ -6,27 +6,11 @@ using Firebase.Database;
 
 using System;
 
-public class FirebaseManager : MonoBehaviour
+public class FirebaseManager : Singleton<FirebaseManager>
 {
-    // - Singleton Format (Accessible from anywhere globally)
-    public static FirebaseManager Instance;
-
     // - Firebase Elements
     private bool firebaseReady = false;
     private DatabaseReference database;
-
-    private void Awake()
-    {
-        if (Instance == null) 
-        {
-            Instance = this;
-        }
-
-        else
-        {
-            Destroy(this);
-        }
-    }
 
     private async void Start()
     {
