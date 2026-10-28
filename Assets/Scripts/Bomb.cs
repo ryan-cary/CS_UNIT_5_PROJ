@@ -22,6 +22,7 @@ public class Bomb : SliceableObject
         _audio.Play(0);
         
         //TODO play visual effect
+        //TODO vibrate
     }
 
     private void ClearBoard()
