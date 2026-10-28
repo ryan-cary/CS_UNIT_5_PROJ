@@ -6,6 +6,7 @@ public class ScoreManager : Singleton<ScoreManager>
     private float _timeElapsed;
     private int _fruitSliced;
     private int _fruitMissed;
+    private int _scorePenaltyIncurred;
 
     [SerializeField] private int maxFruitMissed = 3;
 
@@ -15,6 +16,7 @@ public class ScoreManager : Singleton<ScoreManager>
     public float TimeElapsed => _timeElapsed;
     public int FruitSlicedCount => _fruitSliced;
     public int FruitMissedCount => _fruitMissed;
+    public int Penalty => _scorePenaltyIncurred;
 
     void Start()
     {
@@ -37,6 +39,11 @@ public class ScoreManager : Singleton<ScoreManager>
         _fruitMissed += 1;
         if (FruitMissedCount > maxFruitMissed)
             GameOver();
+    }
+
+    public void Penalize(int penalty)
+    {
+        _scorePenaltyIncurred += penalty;
     }
 
     private void GameOver()

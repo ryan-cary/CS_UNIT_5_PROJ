@@ -2,13 +2,7 @@ using UnityEngine;
 
 public class Bomb : SliceableObject
 {
-    [SerializeField] private AudioSource _audio;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //_audio = GetComponent<AudioSource>();
-    }
+    [SerializeField] private int _scorePenalty = 10;
 
     public override void OnSliced()
     {
@@ -19,7 +13,7 @@ public class Bomb : SliceableObject
         ClearBoard();
 
         // Deduct score
-        //TODO deduct score
+        ScoreManager.Instance.Penalize(_scorePenalty);
     }
 
     public override void SliceEffect()
