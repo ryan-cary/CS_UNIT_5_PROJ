@@ -4324,7 +4324,7 @@ GameObject:
   - component: {fileID: 1012418277}
   - component: {fileID: 1012418276}
   m_Layer: 5
-  m_Name: PerfectGames
+  m_Name: LongestGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,7 +4369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Perfect Games
+  m_text: Longest Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
