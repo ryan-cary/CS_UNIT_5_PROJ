@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -63,6 +64,12 @@ public class ScoreManager : Singleton<ScoreManager>
     private void GameOver()
     {
         GameManager.Instance.ChangeGameState(GameState.GameOver);
+        UpdateLeaderboards();
         Debug.Log("Game Complete!");
+    }
+
+    private void UpdateLeaderboards()
+    {
+        throw new NotImplementedException();
     }
 }
