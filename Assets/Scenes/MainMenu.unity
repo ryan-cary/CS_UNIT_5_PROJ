@@ -7981,7 +7981,19 @@ MonoBehaviour:
   m_CharacterLimit: 20
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1702488202}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Debug_Name
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -8058,7 +8070,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624305150}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &1686369804
 GameObject:
   m_ObjectHideFlags: 0
@@ -8091,6 +8103,7 @@ MonoBehaviour:
   leaderboard: {fileID: 1049020869}
   mainMenu: {fileID: 1534483344}
   logo: {fileID: 1339177560}
+  nameTag: {fileID: 0}
 --- !u!4 &1686369806
 Transform:
   m_ObjectHideFlags: 0
@@ -8273,6 +8286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   onGameStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerNameUpdated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1702488203

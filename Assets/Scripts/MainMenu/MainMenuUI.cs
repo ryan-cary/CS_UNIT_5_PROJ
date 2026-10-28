@@ -1,11 +1,15 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [Header("Menu Elements")]
     [SerializeField] private GameObject leaderboard;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject logo;
+
+    [Header("Name")] [SerializeField] private TMP_InputField nameTag;
 
     private WheelOfFruit[] _wheels;
 
@@ -38,8 +42,8 @@ public class MainMenuUI : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerName(string playerName)
+    public void UpdatePlayerName()
     {
-        
+        GameManager.Instance.onPlayerNameUpdated?.Invoke(nameTag.text);
     }
 }
