@@ -21,7 +21,6 @@ public class HUDManager : MonoBehaviour
         scoreText.text = ScoreManager.Instance.FruitSlicedCount.ToString();
     }
 
-    //TODO move this to GameManager or a LevelManager
     private void UpdateTime()
     {
         timerText.text = TimeSpan.FromSeconds(ScoreManager.Instance.TimeRemaining).ToString(@"mm\:ss");
