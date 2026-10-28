@@ -24,6 +24,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     void Start()
     {
+        Initialize();
         onFruitMissed.AddListener(AddFruitMissed);
         onFruitSliced.AddListener(AddFruitSliced);
     }
@@ -32,6 +33,15 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         _timeElapsed = Time.timeSinceLevelLoad;
         DoTimeRemaining();
+    }
+
+    private void Initialize()
+    {
+        _timeElapsed = 0;
+        _fruitSliced = 0;
+        _fruitMissed = 0;
+        _scorePenaltyIncurred = 0;
+        _timeRemaining = timeLimit;
     }
 
     void DoTimeRemaining()
