@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class Bomb : MonoBehaviour, ISliceable
+public class Bomb : SliceableObject
 {
-    private AudioSource _audio;
+    [SerializeField] private AudioSource _audio;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _audio = GetComponent<AudioSource>();
+        //_audio = GetComponent<AudioSource>();
     }
 
-    public void OnSliced()
+    public override void OnSliced()
     {
         // Explosion sound effect / animation
-        Kaboom();
+        SliceEffect();
         
         // Destroy all fruit on screen (but not as sliced)
         ClearBoard();
@@ -22,9 +22,10 @@ public class Bomb : MonoBehaviour, ISliceable
         //TODO deduct score
     }
 
-    private void Kaboom()
+    public override void SliceEffect()
     {
-        _audio.Play();
+        Debug.Log("Playing bomb audio");
+        _audio.Play(0);
         
         //TODO play visual effect
     }

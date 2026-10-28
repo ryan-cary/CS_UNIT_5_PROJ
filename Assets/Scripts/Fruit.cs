@@ -1,23 +1,19 @@
 using UnityEngine;
 
-public class Fruit : MonoBehaviour, ISliceable
+public class Fruit : SliceableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Color _gibletColor;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnSliced()
+    public override void OnSliced()
     {
         // Destroy / Break apart fruit object
         // Spawn giblets
         // Add score
+        Debug.Log(("slice!"));
+    }
+
+    public override void SliceEffect()
+    {
+        throw new System.NotImplementedException();
     }
 }
