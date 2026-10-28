@@ -737,6 +737,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5dd73a23d4573489dd12b250f54ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  maxFruitMissed: 3
+  onFruitSliced:
+    m_PersistentCalls:
+      m_Calls: []
+  onFruitMissed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1371329546
 Transform:
   m_ObjectHideFlags: 0
