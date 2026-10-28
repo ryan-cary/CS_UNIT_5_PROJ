@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -33,5 +34,16 @@ public class GameManager : Singleton<GameManager>
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
+    }
+
+    public void LoadTimedMode()
+    {
+        LoadScene("CuttingBoard");
+        ChangeGameState(GameState.Play);
+    }
+
+    public void LoadEndlessMode()
+    {
+        throw new NotImplementedException();
     }
 }
