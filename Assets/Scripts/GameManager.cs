@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
 
     public UnityEvent<GameState, GameState> onGameStateChanged = new UnityEvent<GameState, GameState>();
 
-    public void Awake()
+    public void Start()
     {
         _gameState = GameState.Menu;
     }
