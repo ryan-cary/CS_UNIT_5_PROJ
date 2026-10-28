@@ -7,13 +7,12 @@ public class Fruit : SliceableObject
 
     public override void OnSliced()
     {
-        SliceEffect();
-        
         //Destroy
         Destroy(this.gameObject);
-        
         // Add score
         ScoreManager.Instance.onFruitSliced?.Invoke();
+        //Play effects
+        SliceEffect();
     }
 
     public override void SliceEffect()
