@@ -22,14 +22,14 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private TMP_Text nameText;
 
     [Header("Timed Mode - Player")]
+    [SerializeField] private TMP_Text highScore_PLAYER_TIMED;
     [SerializeField] private TMP_Text mostFruits_PLAYER_TIMED;
-    [SerializeField] private TMP_Text mostBombs_PLAYER_TIMED;
     [SerializeField] private TMP_Text totalFruits_PLAYER_TIMED;
     [SerializeField] private TMP_Text totalbombs_PLAYER_TIMED;
     [SerializeField] private TMP_Text perfectGames_PLAYER_TIMED;
     [Header("Timed Mode - Top")]
+    [SerializeField] private TMP_Text highScore_TOP_TIMED;
     [SerializeField] private TMP_Text mostFruits_TOP_TIMED;
-    [SerializeField] private TMP_Text mostBombs_TOP_TIMED;
     [SerializeField] private TMP_Text totalFruits_TOP_TIMED;
     [SerializeField] private TMP_Text totalbombs_TOP_TIMED;
     [SerializeField] private TMP_Text perfectGames_TOP_TIMED;

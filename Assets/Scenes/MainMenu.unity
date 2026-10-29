@@ -1851,7 +1851,7 @@ GameObject:
   - component: {fileID: 408122488}
   - component: {fileID: 408122487}
   m_Layer: 5
-  m_Name: MaxFruits
+  m_Name: HighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Most Fruits Sliced
+  m_text: Highest Score
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
@@ -3233,13 +3233,13 @@ MonoBehaviour:
   timedModePanel: {fileID: 533007804}
   endlessModePanel: {fileID: 1013458338}
   nameText: {fileID: 889030057}
+  highScore_PLAYER_TIMED: {fileID: 0}
   mostFruits_PLAYER_TIMED: {fileID: 5019671}
-  mostBombs_PLAYER_TIMED: {fileID: 508800942}
   totalFruits_PLAYER_TIMED: {fileID: 1974171466}
   totalbombs_PLAYER_TIMED: {fileID: 559376752}
   perfectGames_PLAYER_TIMED: {fileID: 1202402625}
+  highScore_TOP_TIMED: {fileID: 0}
   mostFruits_TOP_TIMED: {fileID: 381662607}
-  mostBombs_TOP_TIMED: {fileID: 960344741}
   totalFruits_TOP_TIMED: {fileID: 300875417}
   totalbombs_TOP_TIMED: {fileID: 142288863}
   perfectGames_TOP_TIMED: {fileID: 197434677}
@@ -5055,7 +5055,7 @@ GameObject:
   - component: {fileID: 1103096596}
   - component: {fileID: 1103096595}
   m_Layer: 5
-  m_Name: MaxBombs
+  m_Name: MaxFruits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5100,7 +5100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Most Bombs Sliced
+  m_text: Most Fruits Sliced
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
