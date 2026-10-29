@@ -10,13 +10,19 @@ using Unity.Services.Leaderboards.Models;
 using UnityEngine.UI;
 using TMPro;
 
+[Serializable]
+public struct ScoreboardEntry
+{
+    public string playerId;
+    public string playerName;
+    public int rank;
+    public float score;
+    public string updatedTime;
+}
+
 public class ScoreLeaderboard : MonoBehaviour
 {
     private const string LEADERBOARD_ID = "timed_leaderboard";
-
-    [SerializeField] private int DEBUG_score = 0;
-    [SerializeField] private int DEBUG_highScore = 0;
-    [SerializeField] private TMP_Text DEBUG_ScoreText;
 
     private async void Start()
     {
@@ -31,18 +37,43 @@ public class ScoreLeaderboard : MonoBehaviour
         }
     }
 
-    public async void POST_SCORE()
+    public async void POST_SCORE(int _score)
     {
-        LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID, DEBUG_score);
-        Debug.Log(JsonConvert.SerializeObject(scoreResponse));
+        LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID, _score);
+        string json = JsonConvert.SerializeObject(scoreResponse);
+        ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
+        Debug.Log(result.score);
+        DEBUG_highScore = (int)result.score;
+        
+        DEBUG_UpdateScoreDisplay();
     }
 
     public async void GET_SCORE()
     {
         LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(LEADERBOARD_ID);
         
-        Debug.Log(JsonConvert.SerializeObject(scoreResponse));
+        string json = JsonConvert.SerializeObject(scoreResponse);
+        ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
+        Debug.Log(result.score);
+        DEBUG_highScore = (int)result.score;
+        
         DEBUG_UpdateScoreDisplay();
+    }
+
+    #region DEBUG
+
+    [SerializeField] private int DEBUG_score = 0;
+    [SerializeField] private int DEBUG_highScore = 0;
+    [SerializeField] private TMP_Text DEBUG_ScoreText;
+    
+    public void DEBUG_PostScore()
+    {
+        POST_SCORE(DEBUG_score);
+    }
+
+    public void DEBUG_GetScore()
+    {
+        GET_SCORE();
     }
 
     public void DEBUG_AddScore()
@@ -61,4 +92,7 @@ public class ScoreLeaderboard : MonoBehaviour
     {
         DEBUG_ScoreText.text = "Score = " + DEBUG_score + "\nHigh Score = " + DEBUG_highScore;
     }
+
+    #endregion
+    
 }

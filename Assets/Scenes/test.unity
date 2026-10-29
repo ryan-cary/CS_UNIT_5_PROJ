@@ -617,7 +617,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 863195308}
         m_TargetAssemblyTypeName: ScoreLeaderboard, Assembly-CSharp
-        m_MethodName: POST_SCORE
+        m_MethodName: DEBUG_PostScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1241,9 +1241,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 930194599}
   - {fileID: 1025731248}
   - {fileID: 1422074922}
+  - {fileID: 930194599}
   - {fileID: 1994564810}
   - {fileID: 1994337817}
   m_Father: {fileID: 0}
@@ -1612,7 +1612,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 863195308}
         m_TargetAssemblyTypeName: ScoreLeaderboard, Assembly-CSharp
-        m_MethodName: GET_SCORE
+        m_MethodName: DEBUG_GetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
