@@ -1,10 +1,28 @@
+using System;
 using UnityEngine;
 
 public class Fruit : SliceableObject
 {
+    [SerializeField] private float lifetime = 5;
+    private float _timer = 0;
+    
+    
     [SerializeField] private Color _gibletColor;
     [SerializeField] private int _numGiblets = 4;
     [SerializeField] private GameObject gibletPrefab;
+
+    private void Update()
+    {
+        if (GameManager.Instance.State == GameState.Play)
+        {
+            _timer += Time.deltaTime;
+            if (_timer >= lifetime)
+            {
+                ScoreManager.Instance.onFruitMissed?.Invoke();
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
     public override void OnSliced()
     {
