@@ -1577,7 +1577,7 @@ GameObject:
   - component: {fileID: 381662606}
   - component: {fileID: 381662607}
   m_Layer: 5
-  m_Name: TopMFText
+  m_Name: TopHighScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3233,13 +3233,13 @@ MonoBehaviour:
   timedModePanel: {fileID: 533007804}
   endlessModePanel: {fileID: 1013458338}
   nameText: {fileID: 889030057}
-  highScore_PLAYER_TIMED: {fileID: 0}
+  highScore_PLAYER_TIMED: {fileID: 408122487}
   mostFruits_PLAYER_TIMED: {fileID: 5019671}
   totalFruits_PLAYER_TIMED: {fileID: 1974171466}
   totalbombs_PLAYER_TIMED: {fileID: 559376752}
   perfectGames_PLAYER_TIMED: {fileID: 1202402625}
-  highScore_TOP_TIMED: {fileID: 0}
-  mostFruits_TOP_TIMED: {fileID: 381662607}
+  highScore_TOP_TIMED: {fileID: 381662607}
+  mostFruits_TOP_TIMED: {fileID: 960344741}
   totalFruits_TOP_TIMED: {fileID: 300875417}
   totalbombs_TOP_TIMED: {fileID: 142288863}
   perfectGames_TOP_TIMED: {fileID: 197434677}
@@ -4326,7 +4326,7 @@ GameObject:
   - component: {fileID: 960344740}
   - component: {fileID: 960344741}
   m_Layer: 5
-  m_Name: TopMBText
+  m_Name: TopMFText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
