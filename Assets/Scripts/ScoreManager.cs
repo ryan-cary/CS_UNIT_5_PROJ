@@ -10,17 +10,23 @@ public class ScoreManager : Singleton<ScoreManager>
     private int _scorePenaltyIncurred;
     private float _timeRemaining;
 
+    private float _totalScore;
+
     [SerializeField] private float timeLimit = 90;
     [SerializeField] private int maxFruitMissed = 3;
 
     public UnityEvent onFruitSliced;
     public UnityEvent onFruitMissed;
+
+    public UnityEvent onGameOver;
     
     public float TimeElapsed => _timeElapsed;
     public float TimeRemaining => _timeRemaining;
     public int FruitSlicedCount => _fruitSliced;
     public int FruitMissedCount => _fruitMissed;
     public int Penalty => _scorePenaltyIncurred;
+
+    public float TotalScore => _totalScore;
 
     void Start()
     {
@@ -31,8 +37,11 @@ public class ScoreManager : Singleton<ScoreManager>
     
     void Update()
     {
-        _timeElapsed = Time.timeSinceLevelLoad;
-        DoTimeRemaining();
+        if (GameManager.Instance.State == GameState.Play)
+        {
+            _timeElapsed = Time.timeSinceLevelLoad;
+            DoTimeRemaining();
+        }
     }
 
     private void Initialize()
@@ -56,30 +65,31 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void AddFruitSliced()
     {
-        _fruitSliced += 1;
+        if (GameManager.Instance.State == GameState.Play)
+            _fruitSliced += 1;
     }
 
     private void AddFruitMissed()
     {
-        _fruitMissed += 1;
+        if (GameManager.Instance.State == GameState.Play)
+            _fruitMissed += 1;
+        
         if (FruitMissedCount > maxFruitMissed)
             GameOver();
     }
 
     public void Penalize(int penalty)
     {
-        _scorePenaltyIncurred += penalty;
+        if (GameManager.Instance.State == GameState.Play)
+            _scorePenaltyIncurred -= penalty;
     }
 
     private void GameOver()
     {
         GameManager.Instance.ChangeGameState(GameState.GameOver);
-        UpdateLeaderboards();
-        Debug.Log("Game Complete!");
-    }
 
-    private void UpdateLeaderboards()
-    {
-        Debug.Log("Leaderboard updates are not yet implemented!");
+        _totalScore = FruitSlicedCount * 5 + FruitMissedCount * -5 + _scorePenaltyIncurred;
+        
+        onGameOver?.Invoke();
     }
 }
