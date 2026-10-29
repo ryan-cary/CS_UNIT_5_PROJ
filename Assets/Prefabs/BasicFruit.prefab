@@ -170,7 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a84ef0116604a4bb687c373274f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fruit
-  _gibletColor: {r: 1, g: 0, b: 0.7843138, a: 0}
+  _gibletColor: {r: 1, g: 0, b: 0.7843138, a: 1}
+  _numGiblets: 4
+  gibletPrefab: {fileID: 1283963074821455637, guid: fe55338eea0477f449f3696a9968afdb, type: 3}
 --- !u!82 &4692349098217072419
 AudioSource:
   m_ObjectHideFlags: 0

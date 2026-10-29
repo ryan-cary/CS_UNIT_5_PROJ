@@ -4,6 +4,7 @@ public class Fruit : SliceableObject
 {
     [SerializeField] private Color _gibletColor;
     [SerializeField] private int _numGiblets = 4;
+    [SerializeField] private GameObject gibletPrefab;
 
     public override void OnSliced()
     {
@@ -17,11 +18,19 @@ public class Fruit : SliceableObject
 
     public override void SliceEffect()
     {
-        throw new System.NotImplementedException();
-        
         // Play Audio
-        _audio.Play(0);
+        //_audio.Play(0);
         //TODO vibrate
         // Make Giblets
+        Splat();
+    }
+    
+    protected void Splat()
+    {
+        for(int i=0;i<_numGiblets;i++)
+        {
+            GameObject giblet = Instantiate(gibletPrefab, transform.position, Quaternion.identity);
+            giblet.GetComponent<SpriteRenderer>().color = _gibletColor;
+        }
     }
 }
