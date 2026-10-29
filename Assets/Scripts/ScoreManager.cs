@@ -80,6 +80,6 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void UpdateLeaderboards()
     {
-        throw new NotImplementedException();
+        Debug.Log("Leaderboard updates are not yet implemented!");
     }
 }
