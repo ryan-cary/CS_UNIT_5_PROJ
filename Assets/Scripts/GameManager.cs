@@ -69,7 +69,7 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadEndlessMode()
     {
-        throw new NotImplementedException();
+        Debug.Log("Endless mode is not yet implemented!");
     }
 
     #endregion

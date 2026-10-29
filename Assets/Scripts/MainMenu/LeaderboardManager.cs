@@ -2,11 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using Unity.Services.Core;
 
 public enum GameMode
 {
     Timed,
     Endless
+}
+
+public readonly struct TimedModeIDs
+{
+    public const string HighScore = "TIMED_highScores";
+    public const string MostFruits = "TIMED_maxFruitsSliced";
+    public const string TotalFruits = "TIMED_totalFruitsSliced";
+    public const string TotalBombs = "TIMED_totalBombsSliced";
+    public const string PerfectGames = "TIMED_perfectGames";
 }
 
 public class LeaderboardManager : MonoBehaviour
@@ -16,6 +26,9 @@ public class LeaderboardManager : MonoBehaviour
 
     private UnityEvent<GameMode> _onGameModeUpdated;
 
+    [SerializeField] private ScoreLeaderboard leaderboard;
+    
+    [Header("UI Elements")]
     [SerializeField] private TMP_Dropdown modeSelector;
     [SerializeField] private GameObject timedModePanel;
     [SerializeField] private GameObject endlessModePanel;
@@ -57,6 +70,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if(UnityServices.State == ServicesInitializationState.Initialized)
         //Initialize menu to Timed Mode stats
         ChangeChosenGameMode();
     }
@@ -66,14 +80,27 @@ public class LeaderboardManager : MonoBehaviour
         nameText.text = playerName;
     }
 
-    public void UpdateTimedMode()
+    public async void UpdateTimedMode()
     {
-        //firebase call for info
+        ScoreboardEntry HSResult = await leaderboard.GET_SCORE(TimedModeIDs.HighScore);
+        highScore_PLAYER_TIMED.text = $"{HSResult.score} (Rank {HSResult.rank})";
+        
+        ScoreboardEntry MFResult = await leaderboard.GET_SCORE(TimedModeIDs.MostFruits);
+        highScore_PLAYER_TIMED.text = $"{MFResult.score} (Rank {MFResult.rank})";
+        
+        ScoreboardEntry TFResult = await leaderboard.GET_SCORE(TimedModeIDs.TotalFruits);
+        highScore_PLAYER_TIMED.text = $"{TFResult.score} (Rank {TFResult.rank})";
+        
+        ScoreboardEntry TBResult = await leaderboard.GET_SCORE(TimedModeIDs.TotalBombs);
+        highScore_PLAYER_TIMED.text = $"{TBResult.score} (Rank {TBResult.rank})";
+        
+        ScoreboardEntry PGResult = await leaderboard.GET_SCORE(TimedModeIDs.PerfectGames);
+        highScore_PLAYER_TIMED.text = $"{PGResult.score} (Rank {PGResult.rank})";
     }
 
     public void UpdateEndlessMode()
     {
-        //firebase call for info   
+        Debug.Log("Endless mode is not yet implemented!");
     }
 
     private void EnableTimedMode()

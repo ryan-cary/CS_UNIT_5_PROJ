@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Services.Leaderboards;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
-
+using System.Threading.Tasks;
 using System;
 using Newtonsoft.Json;
 using Unity.Services.Leaderboards.Models;
@@ -25,6 +25,7 @@ public class ScoreLeaderboard : MonoBehaviour
         try
         {
             await UnityServices.InitializeAsync();
+            Debug.Log("Leaderboard initialized");
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
         catch (Exception e)
@@ -36,21 +37,21 @@ public class ScoreLeaderboard : MonoBehaviour
     public async void POST_SCORE(string leaderboardID, int score)
     {
         LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, score);
-        
+
         string json = JsonConvert.SerializeObject(scoreResponse);
         ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
 
-        Debug.Log(result.score);
+        Debug.Log($"Posted score {result.score} to leaderboard {leaderboardID} for player {result.playerName}");
     }
 
-    public async void GET_SCORE(string leaderboardID)
+    public async Task<ScoreboardEntry> GET_SCORE(string leaderboardID)
     {
         LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardID);
-        
+            
         string json = JsonConvert.SerializeObject(scoreResponse);
         ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
-        
-        Debug.Log(result.score);
+
+        return result;
     }
 
     #region DEBUG
@@ -67,9 +68,9 @@ public class ScoreLeaderboard : MonoBehaviour
         DEBUG_UpdateScoreDisplay();
     }
 
-    public void DEBUG_GetScore()
+    public async void DEBUG_GetScore()
     {
-        GET_SCORE(DEBUG_LEADERBOARD);
+        await GET_SCORE(DEBUG_LEADERBOARD);
         DEBUG_UpdateScoreDisplay();
     }
 
