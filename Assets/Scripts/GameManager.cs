@@ -14,6 +14,7 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
+    
     public void Start()
     {
         _gameState = GameState.Menu;
@@ -43,11 +44,12 @@ public class GameManager : Singleton<GameManager>
 
     public string PlayerName => _playerName;
 
-    [CanBeNull] public UnityEvent<string> onPlayerNameUpdated = new UnityEvent<string>();
+    public UnityEvent<string> onPlayerNameUpdated = new UnityEvent<string>();
 
     public void UpdateName(string newName)
     {
         _playerName = newName;
+        Debug.Log("New Active Player: " + _playerName);
     }
 
     #endregion

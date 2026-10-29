@@ -19,6 +19,7 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private TMP_Dropdown modeSelector;
     [SerializeField] private GameObject timedModePanel;
     [SerializeField] private GameObject endlessModePanel;
+    [SerializeField] private TMP_Text nameText;
 
     [Header("Timed Mode - Player")]
     [SerializeField] private TMP_Text mostFruits_PLAYER_TIMED;
@@ -49,10 +50,20 @@ public class LeaderboardManager : MonoBehaviour
         _fbManager = FindFirstObjectByType<FirebaseManager>();
     }
 
+    private void Start()
+    {
+        GameManager.Instance.onPlayerNameUpdated.AddListener(UpdateNameTag);
+    }
+
     private void OnEnable()
     {
         //Initialize menu to Timed Mode stats
         ChangeChosenGameMode();
+    }
+
+    private void UpdateNameTag(string playerName)
+    {
+        nameText.text = playerName;
     }
 
     public void UpdateTimedMode()
