@@ -6,8 +6,6 @@ using Unity.Services.Core;
 using System;
 using Newtonsoft.Json;
 using Unity.Services.Leaderboards.Models;
-
-using UnityEngine.UI;
 using TMPro;
 
 [Serializable]
@@ -22,8 +20,6 @@ public struct ScoreboardEntry
 
 public class ScoreLeaderboard : MonoBehaviour
 {
-    private const string LEADERBOARD_ID = "timed_leaderboard";
-
     private async void Start()
     {
         try
@@ -37,43 +33,44 @@ public class ScoreLeaderboard : MonoBehaviour
         }
     }
 
-    public async void POST_SCORE(int _score)
+    public async void POST_SCORE(string leaderboardID, int score)
     {
-        LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID, _score);
+        LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, score);
+        
         string json = JsonConvert.SerializeObject(scoreResponse);
         ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
+
         Debug.Log(result.score);
-        DEBUG_highScore = (int)result.score;
-        
-        DEBUG_UpdateScoreDisplay();
     }
 
-    public async void GET_SCORE()
+    public async void GET_SCORE(string leaderboardID)
     {
-        LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(LEADERBOARD_ID);
+        LeaderboardEntry scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardID);
         
         string json = JsonConvert.SerializeObject(scoreResponse);
         ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
-        Debug.Log(result.score);
-        DEBUG_highScore = (int)result.score;
         
-        DEBUG_UpdateScoreDisplay();
+        Debug.Log(result.score);
     }
 
     #region DEBUG
 
+    private const string DEBUG_LEADERBOARD = "DEBUG_LEADERBOARD";
+    
     [SerializeField] private int DEBUG_score = 0;
     [SerializeField] private int DEBUG_highScore = 0;
     [SerializeField] private TMP_Text DEBUG_ScoreText;
     
     public void DEBUG_PostScore()
     {
-        POST_SCORE(DEBUG_score);
+        POST_SCORE(DEBUG_LEADERBOARD, DEBUG_score);
+        DEBUG_UpdateScoreDisplay();
     }
 
     public void DEBUG_GetScore()
     {
-        GET_SCORE();
+        GET_SCORE(DEBUG_LEADERBOARD);
+        DEBUG_UpdateScoreDisplay();
     }
 
     public void DEBUG_AddScore()
