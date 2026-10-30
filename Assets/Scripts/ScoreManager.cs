@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
-    private float _timeElapsed;
     private int _fruitSliced;
     private int _fruitMissed;
     private int _scorePenaltyIncurred;
@@ -20,7 +19,6 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public UnityEvent onGameOver;
     
-    public float TimeElapsed => _timeElapsed;
     public float TimeRemaining => _timeRemaining;
     public int FruitSlicedCount => _fruitSliced;
     public int FruitMissedCount => _fruitMissed;
@@ -39,14 +37,12 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         if (GameManager.Instance.State == GameState.Play)
         {
-            _timeElapsed = Time.timeSinceLevelLoad;
             DoTimeRemaining();
         }
     }
 
     private void Initialize()
     {
-        _timeElapsed = 0;
         _fruitSliced = 0;
         _fruitMissed = 0;
         _scorePenaltyIncurred = 0;
@@ -55,7 +51,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     void DoTimeRemaining()
     {
-        _timeRemaining = timeLimit - _timeElapsed;
+        _timeRemaining -= Time.deltaTime;
 
         if (_timeRemaining <= 0)
         {
