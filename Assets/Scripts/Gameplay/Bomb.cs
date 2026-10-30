@@ -17,9 +17,6 @@ public class Bomb : SliceableObject
 
     public override void SliceEffect()
     {
-        Debug.Log("Playing bomb audio");
-        _audio.PlayOneShot(_audio.clip);
-        
         //TODO play visual effect
         //TODO vibrate
     }
