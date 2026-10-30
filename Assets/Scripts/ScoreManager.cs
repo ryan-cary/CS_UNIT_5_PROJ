@@ -76,12 +76,16 @@ public class ScoreManager : Singleton<ScoreManager>
 
     void DoTimeRemaining()
     {
-        _timeRemaining -= Time.deltaTime;
-
-        if (_timeRemaining <= 0)
+        if (GameManager.Instance.State == GameState.Play)
         {
-            GameOver();
+            _timeRemaining -= Time.deltaTime;
+
+            if (_timeRemaining <= 0)
+            {
+                GameOver();
+            }    
         }
+        
     }
 
     private void AddFruitSliced()
