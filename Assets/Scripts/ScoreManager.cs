@@ -15,7 +15,7 @@ public class ScoreManager : Singleton<ScoreManager>
             leaderboard.POST_SCORE(TimedModeIDs.HighScore, _totalScore);
             leaderboard.POST_SCORE(TimedModeIDs.MostFruits, _fruitSliced);
             leaderboard.POST_SCORE(TimedModeIDs.TotalFruits, _fruitSliced);
-            //leaderboard.POST_SCORE(TimedModeIDs.TotalBombs, /*TODO track bombs better*/);
+            leaderboard.POST_SCORE(TimedModeIDs.TotalBombs, _bombsSliced);
             if (_fruitMissed == 0)
                 leaderboard.POST_SCORE(TimedModeIDs.PerfectGames, 1);
         }
@@ -29,7 +29,7 @@ public class ScoreManager : Singleton<ScoreManager>
     
     private int _fruitSliced;
     private int _fruitMissed;
-    private int _scorePenaltyIncurred;
+    private int _bombsSliced;
     private float _timeRemaining;
 
     private int _totalScore;
@@ -39,13 +39,13 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public UnityEvent onFruitSliced;
     public UnityEvent onFruitMissed;
-
+    public UnityEvent onBombSliced;
     public UnityEvent onGameOver;
     
     public float TimeRemaining => _timeRemaining;
     public int FruitSlicedCount => _fruitSliced;
     public int FruitMissedCount => _fruitMissed;
-    public int Penalty => _scorePenaltyIncurred;
+    public int BombsSlicedCount => _bombsSliced;
 
     public float TotalScore => _totalScore;
 
@@ -55,6 +55,7 @@ public class ScoreManager : Singleton<ScoreManager>
         leaderboard = FindFirstObjectByType<ScoreLeaderboard>();
         onFruitMissed.AddListener(AddFruitMissed);
         onFruitSliced.AddListener(AddFruitSliced);
+        onBombSliced.AddListener(AddBombSliced);
     }
     
     void Update()
@@ -69,7 +70,7 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         _fruitSliced = 0;
         _fruitMissed = 0;
-        _scorePenaltyIncurred = 0;
+        _bombsSliced = 0;
         _timeRemaining = timeLimit;
     }
 
@@ -86,29 +87,29 @@ public class ScoreManager : Singleton<ScoreManager>
     private void AddFruitSliced()
     {
         if (GameManager.Instance.State == GameState.Play)
-            _fruitSliced += 1;
+            _fruitSliced++;
     }
 
     private void AddFruitMissed()
     {
         if (GameManager.Instance.State == GameState.Play)
-            _fruitMissed += 1;
+            _fruitMissed++;
         
         if (FruitMissedCount > maxFruitMissed)
             GameOver();
     }
 
-    public void Penalize(int penalty)
+    private void AddBombSliced()
     {
         if (GameManager.Instance.State == GameState.Play)
-            _scorePenaltyIncurred -= penalty;
+            _bombsSliced++;
     }
 
     private void GameOver()
     {
         GameManager.Instance.ChangeGameState(GameState.GameOver);
 
-        _totalScore = FruitSlicedCount * 5 + FruitMissedCount * -5 + _scorePenaltyIncurred;
+        _totalScore = FruitSlicedCount * 5 + FruitMissedCount * -5 + _bombsSliced * -10;
         
         PostScores();
         

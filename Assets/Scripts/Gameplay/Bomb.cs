@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Bomb : SliceableObject
 {
-    [SerializeField] private int _scorePenalty = 10;
 
     public override void OnSliced()
     {
@@ -13,13 +12,13 @@ public class Bomb : SliceableObject
         ClearBoard();
 
         // Deduct score
-        ScoreManager.Instance.Penalize(_scorePenalty);
+        ScoreManager.Instance.onBombSliced?.Invoke();
     }
 
     public override void SliceEffect()
     {
         Debug.Log("Playing bomb audio");
-        _audio.Play(0);
+        _audio.PlayOneShot(_audio.clip);
         
         //TODO play visual effect
         //TODO vibrate

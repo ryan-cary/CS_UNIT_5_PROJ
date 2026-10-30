@@ -24,7 +24,7 @@ public class GameOverPopup : MonoBehaviour
     {
         fruitsText.text = $"Fruits Sliced: {ScoreManager.Instance.FruitSlicedCount} x 5pts";
         missesText.text = $"Fruits Missed: {ScoreManager.Instance.FruitMissedCount} x -5pts";
-        bombsText.text = $"Bomb Penalty: {ScoreManager.Instance.Penalty}";
+        bombsText.text = $"Bombs Sliced: {ScoreManager.Instance.BombsSlicedCount} x -10pts";
         totalScoreText.text = $"Total: {ScoreManager.Instance.TotalScore}";
     }
 
