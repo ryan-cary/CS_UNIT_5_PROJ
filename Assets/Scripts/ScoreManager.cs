@@ -92,4 +92,9 @@ public class ScoreManager : Singleton<ScoreManager>
         
         onGameOver?.Invoke();
     }
+
+    public void BackToMenu()
+    {
+        GameManager.Instance.LoadMenu();
+    }
 }

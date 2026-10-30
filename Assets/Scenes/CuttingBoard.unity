@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de341eeb8dc1e624e907c16d15101313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverPopup
-  gameOverUI: {fileID: 1988760927}
+  gameOverUI: {fileID: 1165362223}
   fruitsText: {fileID: 67131611}
   missesText: {fileID: 1244351111}
   bombsText: {fileID: 896187507}
@@ -1776,7 +1776,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1625722760}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1371329545}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1625722760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2438,7 +2450,7 @@ GameObject:
   - component: {fileID: 1988760930}
   - component: {fileID: 1988760929}
   m_Layer: 5
-  m_Name: EndScreen
+  m_Name: ScoreInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

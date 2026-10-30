@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
 
     #region Scene Loading
 
-    public void LoadScene(string name)
+    private void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
     }
@@ -70,6 +70,12 @@ public class GameManager : Singleton<GameManager>
     public void LoadEndlessMode()
     {
         Debug.Log("Endless mode is not yet implemented!");
+    }
+
+    public void LoadMenu()
+    {
+        LoadScene("MainMenu");
+        ChangeGameState(GameState.Menu);
     }
 
     #endregion
