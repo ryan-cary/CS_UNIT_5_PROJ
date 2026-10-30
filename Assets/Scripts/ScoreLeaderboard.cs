@@ -53,7 +53,7 @@ public class ScoreLeaderboard : Singleton<ScoreLeaderboard>
         string json = JsonConvert.SerializeObject(scoreResponse);
         ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
 
-        Debug.Log($"Posted score {result.score} to leaderboard {leaderboardID} for player {result.playerName}");
+        //Debug.Log($"Posted score {result.score} to leaderboard {leaderboardID} for player {result.playerName}");
     }
 
     public async Task<ScoreboardEntry> GET_SCORE(string leaderboardID)

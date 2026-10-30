@@ -32,7 +32,6 @@ public class GameManager : Singleton<GameManager>
         GameState previous = _gameState;
         _gameState = target;
         onGameStateChanged?.Invoke(previous, _gameState);
-        DEBUG_LogGameStateChange(previous);
     }
 
     private void DEBUG_LogGameStateChange(GameState prev)
