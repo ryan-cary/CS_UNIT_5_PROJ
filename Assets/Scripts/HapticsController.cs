@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using Unity.Notifications.Android;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class HapticsController : MonoBehaviour
 {
@@ -56,7 +60,67 @@ public class HapticsController : MonoBehaviour
 
     #region Notifications
 
-    
+    private const string ChannelId = "game_notifications";
+
+    private void InitializeNotificationsChannel()
+    {
+        AndroidNotificationChannel channel = new AndroidNotificationChannel()
+        {
+            Id = ChannelId,
+            Name = "Game Notifications",
+            Importance = Importance.Default,
+            Description = "Notifications for the game."
+        };
+        
+        AndroidNotificationCenter.RegisterNotificationChannel(channel);
+
+        if (GetAndroidVersion() > 13)
+        {
+            StartCoroutine(RequestPermission());
+        }
+    }
+
+    public void RequestNotificationPermissions()
+    {
+        StartCoroutine(RequestPermission());
+    }
+
+    private IEnumerator RequestPermission()
+    {
+        PermissionRequest request = new PermissionRequest();
+        while (request.Status == PermissionStatus.RequestPending)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Notification Permission: " + request.Status);
+    }
+
+    public void SendToast(string message)
+    {
+        AndroidJavaObject activity = AndroidApplication.currentActivity;
+        
+        activity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
+            {
+                using (AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast"))
+                using (AndroidJavaObject toast =
+                       toastClass.CallStatic<AndroidJavaObject>("makeText", activity, message, 0))
+                {
+                    toast.Call("show");
+                }
+            }
+            ));
+    }
+
+    public void SendNotification()
+    {
+        AndroidNotification notification = new AndroidNotification()
+        {
+            Title = "Debug Test",
+            Text = "This is a test! Do not be alarmed.",
+            FireTime = DateTime.Now.AddSeconds(5)
+        };
+    }
 
     #endregion
 }
