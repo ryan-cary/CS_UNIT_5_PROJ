@@ -14,8 +14,8 @@ public class GameOverPopup : MonoBehaviour
 
     private void Start()
     {
-        if (gameOverUI.gameObject.activeSelf)
-            gameOverUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        
         ScoreManager.Instance.onGameOver.AddListener(EnableGameOverScreen);
         ScoreManager.Instance.onGameOver.AddListener(UpdateFields);
     }
