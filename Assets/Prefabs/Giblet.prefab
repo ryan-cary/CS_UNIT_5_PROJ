@@ -104,7 +104,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ce6326b7e80f104f933a6a8f51f5d6a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::Giblet
+  lifetime: 3
   launchForce: 10
 --- !u!50 &-7659042346252070187
 Rigidbody2D:
