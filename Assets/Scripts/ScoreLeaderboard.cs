@@ -24,9 +24,12 @@ public class ScoreLeaderboard : MonoBehaviour
     {
         try
         {
-            await UnityServices.InitializeAsync();
+            if (UnityServices.State != ServicesInitializationState.Initialized)
+                await UnityServices.InitializeAsync();
             Debug.Log("Leaderboard initialized");
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            
+            if (!AuthenticationService.Instance.IsSignedIn)
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
         catch (Exception e)
         {
