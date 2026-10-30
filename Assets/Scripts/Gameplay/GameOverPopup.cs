@@ -23,9 +23,9 @@ public class GameOverPopup : MonoBehaviour
     private void UpdateFields()
     {
         fruitsText.text = $"Fruits Sliced: {ScoreManager.Instance.FruitSlicedCount}";
-        fruitsText.text = $"Fruits Missed: {ScoreManager.Instance.FruitMissedCount}";
-        fruitsText.text = $"Bomb Penalty: {ScoreManager.Instance.Penalty}";
-        fruitsText.text = $"Total: {ScoreManager.Instance.TotalScore}";
+        missesText.text = $"Fruits Missed: {ScoreManager.Instance.FruitMissedCount}";
+        bombsText.text = $"Bomb Penalty: {ScoreManager.Instance.Penalty}";
+        totalScoreText.text = $"Total: {ScoreManager.Instance.TotalScore}";
     }
 
     private void EnableGameOverScreen()
