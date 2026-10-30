@@ -116,6 +116,12 @@ public class ScoreManager : Singleton<ScoreManager>
         onGameOver?.Invoke();
     }
 
+    public void PlayAgain()
+    {
+        Initialize();
+        GameManager.Instance.ChangeGameState(GameState.Play);
+    }
+
     public void BackToMenu()
     {
         GameManager.Instance.LoadMenu();
