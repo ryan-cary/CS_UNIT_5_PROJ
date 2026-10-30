@@ -76,16 +76,12 @@ public class ScoreManager : Singleton<ScoreManager>
 
     void DoTimeRemaining()
     {
-        if (GameManager.Instance.State == GameState.Play)
-        {
-            _timeRemaining -= Time.deltaTime;
-
-            if (_timeRemaining <= 0)
-            {
-                GameOver();
-            }    
-        }
+        _timeRemaining -= Time.deltaTime;
         
+        if (_timeRemaining <= 0)
+        {
+            GameOver();
+        }  
     }
 
     private void AddFruitSliced()
@@ -99,8 +95,12 @@ public class ScoreManager : Singleton<ScoreManager>
         if (GameManager.Instance.State == GameState.Play)
             _fruitMissed++;
         
+        /*
+        // Commenting this out as it was originally meant to be used in the endless mode
+        //
         if (FruitMissedCount > maxFruitMissed)
             GameOver();
+            */
     }
 
     private void AddBombSliced()
