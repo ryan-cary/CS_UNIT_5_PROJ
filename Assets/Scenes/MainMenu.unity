@@ -4264,19 +4264,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 953694109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1702488202}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadEndlessMode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &953694109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7152,19 +7140,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1502948441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1702488202}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadTimedMode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CuttingBoard
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1502948441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8244,6 +8220,8 @@ MonoBehaviour:
   mainMenu: {fileID: 1534483344}
   logo: {fileID: 1339177560}
   nameTag: {fileID: 1624305152}
+  timedButton: {fileID: 1502948440}
+  endlessButton: {fileID: 953694108}
 --- !u!4 &1686369806
 Transform:
   m_ObjectHideFlags: 0

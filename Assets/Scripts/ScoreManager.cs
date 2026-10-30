@@ -66,7 +66,7 @@ public class ScoreManager : Singleton<ScoreManager>
         }
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         _fruitSliced = 0;
         _fruitMissed = 0;
@@ -120,11 +120,5 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         Initialize();
         GameManager.Instance.ChangeGameState(GameState.Play);
-    }
-
-    public void BackToMenu()
-    {
-        Initialize();
-        GameManager.Instance.LoadMenu();
     }
 }

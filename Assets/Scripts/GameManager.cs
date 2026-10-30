@@ -1,5 +1,3 @@
-using System;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -80,6 +78,7 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadMenu()
     {
+        ScoreManager.Instance.Initialize();
         LoadScene("MainMenu");
         ChangeGameState(GameState.Menu);
     }

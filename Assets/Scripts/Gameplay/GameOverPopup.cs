@@ -1,10 +1,13 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverPopup : MonoBehaviour
 {
+    [Header("UI Elements")]
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private Button menuButton;
 
     [Header("Text Fields")] 
     [SerializeField] private TMP_Text fruitsText;
@@ -18,6 +21,8 @@ public class GameOverPopup : MonoBehaviour
         
         ScoreManager.Instance.onGameOver.AddListener(EnableGameOverScreen);
         ScoreManager.Instance.onGameOver.AddListener(UpdateFields);
+        
+        menuButton.onClick.AddListener(GameManager.Instance.LoadMenu);
     }
 
     private void UpdateFields()

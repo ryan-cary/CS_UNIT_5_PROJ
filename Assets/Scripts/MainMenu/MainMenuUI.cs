@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class MainMenuUI : MonoBehaviour
 
     [Header("Name")] [SerializeField] private TMP_InputField nameTag;
 
+    [Header("Buttons")] 
+    [SerializeField] private Button timedButton;
+    [SerializeField] private Button endlessButton;
+
     private WheelOfFruit[] _wheels;
 
     private void Start()
@@ -18,7 +23,9 @@ public class MainMenuUI : MonoBehaviour
 
         if (GameManager.Instance.PlayerName != null)
             nameTag.text = GameManager.Instance.PlayerName;
-
+        
+        timedButton.onClick.AddListener(GameManager.Instance.LoadTimedMode);
+        endlessButton.onClick.AddListener(GameManager.Instance.LoadEndlessMode);
     }
 
     public void ShowLeaderboard()
