@@ -10,15 +10,6 @@ public enum GameMode
     Endless
 }
 
-public readonly struct TimedModeIDs
-{
-    public const string HighScore = "TIMED_highScores";
-    public const string MostFruits = "TIMED_maxFruitsSliced";
-    public const string TotalFruits = "TIMED_totalFruitsSliced";
-    public const string TotalBombs = "TIMED_totalBombsSliced";
-    public const string PerfectGames = "TIMED_perfectGames";
-}
-
 public class LeaderboardManager : MonoBehaviour
 {
     private FirebaseManager _fbManager;

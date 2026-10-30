@@ -4,12 +4,35 @@ using UnityEngine.Events;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
+    #region Leaderboards
+
+    [SerializeField] private ScoreLeaderboard leaderboard;
+
+    private void PostScores()
+    {
+        try
+        {
+            leaderboard.POST_SCORE(TimedModeIDs.HighScore, _totalScore);
+            leaderboard.POST_SCORE(TimedModeIDs.MostFruits, _fruitSliced);
+            leaderboard.POST_SCORE(TimedModeIDs.TotalFruits, _fruitSliced);
+            //leaderboard.POST_SCORE(TimedModeIDs.TotalBombs, /*TODO track bombs better*/);
+            if (_fruitMissed == 0)
+                leaderboard.POST_SCORE(TimedModeIDs.PerfectGames, 1);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error posting scores: {e.Message}");
+        }
+    }
+
+    #endregion
+    
     private int _fruitSliced;
     private int _fruitMissed;
     private int _scorePenaltyIncurred;
     private float _timeRemaining;
 
-    private float _totalScore;
+    private int _totalScore;
 
     [SerializeField] private float timeLimit = 90;
     [SerializeField] private int maxFruitMissed = 3;
@@ -29,6 +52,7 @@ public class ScoreManager : Singleton<ScoreManager>
     void Start()
     {
         Initialize();
+        leaderboard = FindFirstObjectByType<ScoreLeaderboard>();
         onFruitMissed.AddListener(AddFruitMissed);
         onFruitSliced.AddListener(AddFruitSliced);
     }
@@ -85,6 +109,8 @@ public class ScoreManager : Singleton<ScoreManager>
         GameManager.Instance.ChangeGameState(GameState.GameOver);
 
         _totalScore = FruitSlicedCount * 5 + FruitMissedCount * -5 + _scorePenaltyIncurred;
+        
+        PostScores();
         
         onGameOver?.Invoke();
     }
