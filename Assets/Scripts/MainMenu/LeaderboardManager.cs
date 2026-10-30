@@ -12,7 +12,6 @@ public enum GameMode
 
 public class LeaderboardManager : MonoBehaviour
 {
-    private FirebaseManager _fbManager;
     private GameMode _chosenGameMode;
 
     private UnityEvent<GameMode> _onGameModeUpdated;
@@ -48,11 +47,6 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private TMP_Text totalFruits_TOP_ENDLESS;
     [SerializeField] private TMP_Text totalbombs_TOP_ENDLESS;
     [SerializeField] private TMP_Text perfectGames_TOP_ENDLESS;
-
-    private void Awake()
-    {
-        _fbManager = FindFirstObjectByType<FirebaseManager>();
-    }
 
     private void Start()
     {
