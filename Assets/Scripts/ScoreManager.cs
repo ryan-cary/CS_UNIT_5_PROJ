@@ -124,6 +124,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public void BackToMenu()
     {
+        Initialize();
         GameManager.Instance.LoadMenu();
     }
 }
