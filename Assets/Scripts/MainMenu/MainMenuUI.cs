@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +15,10 @@ public class MainMenuUI : MonoBehaviour
     private void Start()
     {
         _wheels = FindObjectsByType<WheelOfFruit>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        if (GameManager.Instance.PlayerName != null)
+            nameTag.text = GameManager.Instance.PlayerName;
+
     }
 
     public void ShowLeaderboard()
