@@ -121,6 +121,18 @@ public class LeaderboardManager : MonoBehaviour
             Debug.LogError($"Error retrieving score: {e.Message}");
             perfectGames_PLAYER_TIMED.text = "0";
         }
+        
+        /*
+        try
+        {
+            ScoreboardEntry result = await leaderboard.GET_TOP_SCORE(TimedModeIDs.HighScore);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            perfectGames_PLAYER_TIMED.text = "0";
+        }
+        */
     }
 
     public void UpdateEndlessMode()

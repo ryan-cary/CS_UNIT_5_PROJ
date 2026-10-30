@@ -66,6 +66,14 @@ public class ScoreLeaderboard : Singleton<ScoreLeaderboard>
         return result;
     }
 
+    public async Task<ScoreboardEntry> GET_TOP_SCORE(string leaderboardID)
+    {
+        Task<LeaderboardScoresPage> topScore = LeaderboardsService.Instance.GetScoresAsync(leaderboardID, new GetScoresOptions{Limit = 1});
+        Debug.Log(JsonConvert.SerializeObject(topScore));
+
+        return new ScoreboardEntry();
+    }
+
     #region DEBUG
 
     private const string DEBUG_LEADERBOARD = "DEBUG_LEADERBOARD";
