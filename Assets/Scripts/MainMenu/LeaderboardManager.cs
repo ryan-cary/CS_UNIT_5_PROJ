@@ -82,20 +82,60 @@ public class LeaderboardManager : MonoBehaviour
 
     public async void UpdateTimedMode()
     {
-        ScoreboardEntry HSResult = await leaderboard.GET_SCORE(TimedModeIDs.HighScore);
-        highScore_PLAYER_TIMED.text = $"{HSResult.score} (Rank {HSResult.rank})";
+        try //retrieve high score
+        {
+            ScoreboardEntry HSResult = await leaderboard.GET_SCORE(TimedModeIDs.HighScore);
+            highScore_PLAYER_TIMED.text = $"{HSResult.score} (Rank {HSResult.rank})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            highScore_PLAYER_TIMED.text = "0";
+        }
         
-        ScoreboardEntry MFResult = await leaderboard.GET_SCORE(TimedModeIDs.MostFruits);
-        highScore_PLAYER_TIMED.text = $"{MFResult.score} (Rank {MFResult.rank})";
+        try //retrieve max fruits
+        {
+            ScoreboardEntry MFResult = await leaderboard.GET_SCORE(TimedModeIDs.MostFruits);
+            mostFruits_PLAYER_TIMED.text = $"{MFResult.score} (Rank {MFResult.rank})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            mostFruits_PLAYER_TIMED.text = "0";
+        }
         
-        ScoreboardEntry TFResult = await leaderboard.GET_SCORE(TimedModeIDs.TotalFruits);
-        highScore_PLAYER_TIMED.text = $"{TFResult.score} (Rank {TFResult.rank})";
+        try //retrieve lifetime fruits
+        {
+            ScoreboardEntry TFResult = await leaderboard.GET_SCORE(TimedModeIDs.TotalFruits);
+            totalFruits_PLAYER_TIMED.text = $"{TFResult.score} (Rank {TFResult.rank})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            totalFruits_PLAYER_TIMED.text = "0";
+        }
         
-        ScoreboardEntry TBResult = await leaderboard.GET_SCORE(TimedModeIDs.TotalBombs);
-        highScore_PLAYER_TIMED.text = $"{TBResult.score} (Rank {TBResult.rank})";
+        try //retrieve lifetime bombs
+        {
+            ScoreboardEntry TBResult = await leaderboard.GET_SCORE(TimedModeIDs.TotalBombs);
+            totalbombs_PLAYER_TIMED.text = $"{TBResult.score} (Rank {TBResult.rank})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            totalbombs_PLAYER_TIMED.text = "0";
+        }
         
-        ScoreboardEntry PGResult = await leaderboard.GET_SCORE(TimedModeIDs.PerfectGames);
-        highScore_PLAYER_TIMED.text = $"{PGResult.score} (Rank {PGResult.rank})";
+        try //retrieve lifetime perfect games
+        {
+            ScoreboardEntry PGResult = await leaderboard.GET_SCORE(TimedModeIDs.PerfectGames);
+            perfectGames_PLAYER_TIMED.text = $"{PGResult.score} (Rank {PGResult.rank})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            perfectGames_PLAYER_TIMED.text = "0";
+        }
     }
 
     public void UpdateEndlessMode()
