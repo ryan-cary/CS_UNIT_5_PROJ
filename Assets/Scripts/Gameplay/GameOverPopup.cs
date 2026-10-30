@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameOverPopup : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameOverPopup : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private Button menuButton;
+    [SerializeField] private Button replayButton;
 
     [Header("Text Fields")] 
     [SerializeField] private TMP_Text fruitsText;
@@ -23,6 +25,7 @@ public class GameOverPopup : MonoBehaviour
         ScoreManager.Instance.onGameOver.AddListener(UpdateFields);
         
         menuButton.onClick.AddListener(GameManager.Instance.LoadMenu);
+        replayButton.onClick.AddListener(ScoreManager.Instance.PlayAgain);
     }
 
     private void UpdateFields()

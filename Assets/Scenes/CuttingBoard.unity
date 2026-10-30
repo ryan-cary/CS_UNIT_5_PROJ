@@ -1838,6 +1838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverPopup
   gameOverUI: {fileID: 1165362223}
   menuButton: {fileID: 1625722759}
+  replayButton: {fileID: 911496320}
   fruitsText: {fileID: 67131611}
   missesText: {fileID: 1244351111}
   bombsText: {fileID: 896187507}
