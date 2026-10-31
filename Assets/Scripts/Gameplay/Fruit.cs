@@ -35,10 +35,8 @@ public class Fruit : SliceableObject
 
     public override void SliceEffect()
     {
-        // Play Audio
-        //_audio.Play(0);
-        //TODO vibrate
-        // Make Giblets
+        HapticsController.Instance.Vibrate(40);
+        //Make giblets
         Splat();
     }
     

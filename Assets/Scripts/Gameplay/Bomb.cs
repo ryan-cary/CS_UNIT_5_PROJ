@@ -17,8 +17,9 @@ public class Bomb : SliceableObject
 
     public override void SliceEffect()
     {
-        //TODO play visual effect
-        //TODO vibrate
+        HapticsController.Instance.Vibrate(200);
+        
+        //Create visual effect
     }
 
     private void ClearBoard()
