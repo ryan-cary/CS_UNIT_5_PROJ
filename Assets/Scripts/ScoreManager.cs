@@ -56,6 +56,7 @@ public class ScoreManager : Singleton<ScoreManager>
         onFruitMissed.AddListener(AddFruitMissed);
         onFruitSliced.AddListener(AddFruitSliced);
         onBombSliced.AddListener(AddBombSliced);
+        onBombSliced.AddListener(ClearBoard);
     }
     
     void Update()
@@ -66,8 +67,17 @@ public class ScoreManager : Singleton<ScoreManager>
         }
     }
 
+    private void OnDestroy()
+    {
+        onFruitMissed?.RemoveAllListeners();
+        onFruitSliced?.RemoveAllListeners();
+        onBombSliced?.RemoveAllListeners();
+    }
+
     public void Initialize()
     {
+        ClearBoard();
+        
         _fruitSliced = 0;
         _fruitMissed = 0;
         _bombsSliced = 0;
@@ -107,6 +117,23 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         if (GameManager.Instance.State == GameState.Play)
             _bombsSliced++;
+    }
+    
+    private void ClearBoard()
+    {
+        
+        Fruit[] fruitToBeDestroyed = FindObjectsByType<Fruit>(FindObjectsSortMode.None);
+        Bomb[] bombsToBeDestroyed = FindObjectsByType<Bomb>(FindObjectsSortMode.None);
+
+        foreach (Fruit f in (fruitToBeDestroyed))
+        {
+            Destroy(f.gameObject);
+        }
+
+        foreach (Bomb b in bombsToBeDestroyed)
+        {
+            Destroy(b.gameObject);
+        }
     }
 
     private void GameOver()
