@@ -4,7 +4,7 @@ using Unity.Notifications.Android;
 using UnityEngine;
 using UnityEngine.Android;
 
-public class HapticsController : MonoBehaviour
+public class HapticsController : Singleton<HapticsController>
 {
     private int GetAndroidVersion()
     {

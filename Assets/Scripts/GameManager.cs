@@ -73,7 +73,7 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadEndlessMode()
     {
-        Debug.Log("Endless mode is not yet implemented!");
+        HapticsController.Instance.SendToast("Endless mode is not implemented yet! Sorry!");
     }
 
     public void LoadMenu()
