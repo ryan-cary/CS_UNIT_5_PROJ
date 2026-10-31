@@ -11,7 +11,7 @@ public class HapticsController : Singleton<HapticsController>
 #if UNITY_ANDROID && !UNITY_EDITOR
         using (AndroidJavaClass version = new AndroidJavaClass("android.os.Build$VERSION"))
         {
-            return version.GetStatic<int>("SDK_INT")
+            return version.GetStatic<int>("SDK_INT");
         }
 #else
         return 0;
@@ -42,7 +42,7 @@ public class HapticsController : Singleton<HapticsController>
 
             int sdk_version = GetAndroidVersion();
 
-            if (sdkVersion >= 26)
+            if (sdk_version >= 26)
             {
                 using (AndroidJavaClass effect = new AndroidJavaClass("android.os.VibrationEffect"))
                 using (AndroidJavaObject vibration = effect.CallStatic<AndroidJavaObject>("createOneShot", duration, Mathf.Clamp(strength, 1, 255)))

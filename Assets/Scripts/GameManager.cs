@@ -73,7 +73,11 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadEndlessMode()
     {
+        #if UNITY_ANDROID && !UNITY_EDITOR
         HapticsController.Instance.SendToast("Endless mode is not implemented yet! Sorry!");
+        #else
+        Debug.Log("Endless mode hasn't been implemented yet!");
+        #endif
     }
 
     public void LoadMenu()
