@@ -137,7 +137,11 @@ public class LeaderboardManager : MonoBehaviour
 
     public void UpdateEndlessMode()
     {
-        Debug.Log("Endless mode is not yet implemented!");
+#if UNITY_ANDROID && !UNITY_EDITOR
+        HapticsController.Instance.SendToast("Endless mode is not implemented yet! Sorry!");
+#else
+        Debug.Log("Endless mode hasn't been implemented yet!");
+#endif
     }
 
     private void EnableTimedMode()
