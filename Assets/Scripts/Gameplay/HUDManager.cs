@@ -12,12 +12,12 @@ public class HUDManager : MonoBehaviour
     {
         HUD.gameObject.SetActive(true);
         ScoreManager.Instance.onGameOver?.AddListener(HideHUD);
+        ScoreManager.Instance.onFruitSliced?.AddListener(UpdateScore);
     }
 
     void Update()
     {
         UpdateTime();
-        UpdateScore();
     }
 
     private void UpdateScore()
