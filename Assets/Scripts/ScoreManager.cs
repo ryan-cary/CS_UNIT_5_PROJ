@@ -152,4 +152,10 @@ public class ScoreManager : Singleton<ScoreManager>
         Initialize();
         GameManager.Instance.ChangeGameState(GameState.Play);
     }
+
+    public void AddTime(float timeToAdd)
+    {
+        _timeRemaining += timeToAdd;
+        GameManager.Instance.ChangeGameState(GameState.Play);
+    }
 }
