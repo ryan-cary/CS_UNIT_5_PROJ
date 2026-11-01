@@ -59,8 +59,9 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
     {
       Debug.Log("Unity Ads Rewarded Ad Completed");
-      ScoreManager.Instance.AddTime(30);
-      //Hide end screen
+      // Add play time
+      // Switch game mode back to play
+      // Hide end screen
       // Enable HUD
     }
   }
