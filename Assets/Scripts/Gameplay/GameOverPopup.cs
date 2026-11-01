@@ -21,8 +21,8 @@ public class GameOverPopup : MonoBehaviour
     {
         gameOverUI.SetActive(false);
         
-        ScoreManager.Instance.onGameOver.AddListener(EnableGameOverScreen);
-        ScoreManager.Instance.onGameOver.AddListener(UpdateFields);
+        ScoreManager.Instance.onGameOver?.AddListener(EnableGameOverScreen);
+        ScoreManager.Instance.onGameOver?.AddListener(UpdateFields);
         
         menuButton.onClick.AddListener(GameManager.Instance.LoadMenu);
         replayButton.onClick.AddListener(ScoreManager.Instance.PlayAgain);
@@ -39,5 +39,22 @@ public class GameOverPopup : MonoBehaviour
     private void EnableGameOverScreen()
     {
         gameOverUI.gameObject.SetActive(true);
+        FindFirstObjectByType<RewardedAdsButton>().LoadAd();
+    }
+
+    public void playRewardedAd()
+    {
+        //Unity legacy ads is deprecated so we're doing this instead of rewarded ads
+        ScoreManager.Instance.AddTime(30);
+        HapticsController.Instance.SendToast("Legacy ads are deprecated, but we'll give you time anyway!");
+    }
+
+    private void OnDestroy()
+    {
+        ScoreManager.Instance.onGameOver?.RemoveListener(EnableGameOverScreen);
+        ScoreManager.Instance.onGameOver?.RemoveListener(UpdateFields);
+
+        menuButton.onClick.RemoveAllListeners();
+        replayButton.onClick.RemoveAllListeners();
     }
 }

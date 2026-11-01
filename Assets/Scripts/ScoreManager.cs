@@ -72,6 +72,7 @@ public class ScoreManager : Singleton<ScoreManager>
         onFruitMissed?.RemoveAllListeners();
         onFruitSliced?.RemoveAllListeners();
         onBombSliced?.RemoveAllListeners();
+        onGameOver?.RemoveAllListeners();
     }
 
     public void Initialize()
