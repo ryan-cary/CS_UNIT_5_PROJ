@@ -39,7 +39,7 @@ public class GameOverPopup : MonoBehaviour
     private void EnableGameOverScreen()
     {
         gameOverUI.gameObject.SetActive(true);
-        FindFirstObjectByType<RewardedAdsButton>().LoadAd();
+        //FindFirstObjectByType<RewardedAdsButton>().LoadAd();
     }
 
     public void playRewardedAd()
