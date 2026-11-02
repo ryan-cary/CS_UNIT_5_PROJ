@@ -71,12 +71,12 @@ public class ScoreLeaderboard : Singleton<ScoreLeaderboard>
         return result;
     }
 
-    public async Task<ScoreboardEntry> GET_TOP_SCORE(string leaderboardID)
+    public async Task<LeaderboardEntry> GET_TOP_SCORE(string leaderboardID)
     {
-        Task<LeaderboardScoresPage> topScore = LeaderboardsService.Instance.GetScoresAsync(leaderboardID, new GetScoresOptions{Limit = 1});
-        Debug.Log(JsonConvert.SerializeObject(topScore));
+        LeaderboardScoresPage topScore = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
+        //Debug.Log(JsonConvert.SerializeObject(topScore));
 
-        return new ScoreboardEntry();
+        return topScore.Results[0];
     }
 
     #region DEBUG

@@ -21,7 +21,7 @@ public class AdManager : Singleton<AdManager>, IUnityAdsInitializationListener
     private BannerAdHandler _bannerAdHandler;
     private RewardedAdHandler _rewardedAdHandler;
 
-    void Awake()
+    new void Awake()
     {
         base.Awake();
         #if UNITY_IOS

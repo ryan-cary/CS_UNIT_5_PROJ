@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using Unity.Services.Core;
+using Unity.Services.Leaderboards.Models;
 
 
 public class LeaderboardManager : MonoBehaviour
@@ -44,13 +45,6 @@ public class LeaderboardManager : MonoBehaviour
         GameManager.Instance.onPlayerNameUpdated.AddListener(UpdateNameTag);
     }
 
-    private void OnEnable()
-    {
-        if(UnityServices.State == ServicesInitializationState.Initialized)
-        //Initialize menu to Timed Mode stats
-        ChangeChosenGameMode();
-    }
-
     private void UpdateNameTag(string playerName)
     {
         nameText.text = playerName;
@@ -66,7 +60,7 @@ public class LeaderboardManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Error retrieving score: {e.Message}");
-            highScore_PLAYER_TIMED.text = "0";
+            highScore_PLAYER_TIMED.text = "Retrieval failed";
         }
         
         try //retrieve max fruits
@@ -77,7 +71,7 @@ public class LeaderboardManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Error retrieving score: {e.Message}");
-            mostFruits_PLAYER_TIMED.text = "0";
+            mostFruits_PLAYER_TIMED.text = "Retrieval failed";
         }
         
         try //retrieve lifetime fruits
@@ -88,7 +82,7 @@ public class LeaderboardManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Error retrieving score: {e.Message}");
-            totalFruits_PLAYER_TIMED.text = "0";
+            totalFruits_PLAYER_TIMED.text = "Retrieval failed";
         }
         
         try //retrieve lifetime bombs
@@ -99,7 +93,7 @@ public class LeaderboardManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Error retrieving score: {e.Message}");
-            totalbombs_PLAYER_TIMED.text = "0";
+            totalbombs_PLAYER_TIMED.text = "Retrieval failed";
         }
         
         try //retrieve lifetime perfect games
@@ -110,23 +104,78 @@ public class LeaderboardManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Error retrieving score: {e.Message}");
-            perfectGames_PLAYER_TIMED.text = "0";
+            perfectGames_PLAYER_TIMED.text = "Retrieval failed";
         }
-        
-        /*
+    }
+
+    public async void UpdateTimedTopScores()
+    {
         try
         {
-            ScoreboardEntry result = await leaderboard.GET_TOP_SCORE(TimedModeIDs.HighScore);
+            LeaderboardEntry THSResult = await leaderboard.GET_TOP_SCORE(TimedModeIDs.HighScore);
+            highScore_TOP_TIMED.text = $"{THSResult.Score} ({THSResult.PlayerName})";
         }
         catch (Exception e)
         {
             Debug.LogError($"Error retrieving score: {e.Message}");
-            perfectGames_PLAYER_TIMED.text = "0";
+            highScore_TOP_TIMED.text = "Retrieval failed";
         }
-        */
+        
+        try
+        {
+            LeaderboardEntry TMFResult = await leaderboard.GET_TOP_SCORE(TimedModeIDs.MostFruits);
+            mostFruits_TOP_TIMED.text = $"{TMFResult.Score} ({TMFResult.PlayerName})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            mostFruits_TOP_TIMED.text = "Retrieval failed";
+        }
+        
+        try
+        {
+            LeaderboardEntry TTFResult = await leaderboard.GET_TOP_SCORE(TimedModeIDs.TotalFruits);
+            totalFruits_TOP_TIMED.text = $"{TTFResult.Score} ({TTFResult.PlayerName})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            totalFruits_TOP_TIMED.text = "Retrieval failed";
+        }
+        
+        try
+        {
+            LeaderboardEntry TTBResult = await leaderboard.GET_TOP_SCORE(TimedModeIDs.TotalBombs);
+            totalbombs_TOP_TIMED.text = $"{TTBResult.Score} ({TTBResult.PlayerName})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            totalbombs_TOP_TIMED.text = "Retrieval failed";
+        }
+        
+        try
+        {
+            LeaderboardEntry TPGResult = await leaderboard.GET_TOP_SCORE(TimedModeIDs.PerfectGames);
+            perfectGames_TOP_TIMED.text = $"{TPGResult.Score} ({TPGResult.PlayerName})";
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error retrieving score: {e.Message}");
+            perfectGames_TOP_TIMED.text = "Retrieval failed";
+        }
     }
 
     public void UpdateEndlessMode()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        HapticsController.Instance.SendToast("Endless mode is not implemented yet! Sorry!");
+#else
+        Debug.Log("Endless mode hasn't been implemented yet!");
+#endif
+    }
+
+    public void UpdateEndlessTopScores()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
         HapticsController.Instance.SendToast("Endless mode is not implemented yet! Sorry!");
@@ -155,10 +204,12 @@ public class LeaderboardManager : MonoBehaviour
         {
             case(0):
                 UpdateTimedMode();
+                UpdateTimedTopScores();
                 EnableTimedMode();
                 break;
             case(1):
                 UpdateEndlessMode();
+                UpdateEndlessTopScores();
                 EnableEndlessMode();
                 break;
         }

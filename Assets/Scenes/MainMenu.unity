@@ -815,7 +815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N/A
+  m_text: Retrieving...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N/A
+  m_text: Retrieving...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N/A
+  m_text: Retrieving...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N/A
+  m_text: Retrieving...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4412,7 +4412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N/A
+  m_text: Retrieving...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
   m_sharedMaterial: {fileID: 8337806896659072110, guid: fe32e70b9416ce94d84d65e733713677, type: 2}
@@ -4442,7 +4442,7 @@ MonoBehaviour:
   m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7657,6 +7657,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1686369805}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
         m_MethodName: ShowLeaderboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 809470682}
+        m_TargetAssemblyTypeName: LeaderboardManager, Assembly-CSharp
+        m_MethodName: ChangeChosenGameMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
