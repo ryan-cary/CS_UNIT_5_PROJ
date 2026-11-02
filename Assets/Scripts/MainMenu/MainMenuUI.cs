@@ -8,6 +8,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject leaderboard;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject logo;
+    [SerializeField] private GameObject creditsPanel;
 
     [Header("Name")] [SerializeField] private TMP_InputField nameTag;
 
@@ -50,6 +51,14 @@ public class MainMenuUI : MonoBehaviour
         {
             wheel.gameObject.SetActive(true);
         }
+    }
+
+    public void ToggleCredits()
+    {
+        if (creditsPanel.activeSelf)
+            creditsPanel.SetActive(false);
+        else
+            creditsPanel.SetActive(true);
     }
 
     public void UpdatePlayerName()
