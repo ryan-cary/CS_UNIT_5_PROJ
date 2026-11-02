@@ -6,6 +6,13 @@ using UnityEngine.Android;
 
 public class HapticsController : Singleton<HapticsController>
 {
+    private void Start()
+    {
+        InitializeNotificationsChannel();
+    }
+
+    #region Vibration
+
     private int GetAndroidVersion()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -57,6 +64,8 @@ public class HapticsController : Singleton<HapticsController>
         }
 #endif
     }
+
+    #endregion
 
     #region Notifications
 
