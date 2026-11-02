@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   leaderboard: {fileID: 0}
-  timeLimit: 10
+  timeLimit: 120
   maxFruitMissed: 3
   onFruitSliced:
     m_PersistentCalls:
@@ -3537,6 +3537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1942940563816017394, guid: 259152973bdce3541ab19e60e0288e48, type: 3}
+      propertyPath: maxSpawnFrequency
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5670873203573049920, guid: 259152973bdce3541ab19e60e0288e48, type: 3}
       propertyPath: m_Name
       value: Launcher

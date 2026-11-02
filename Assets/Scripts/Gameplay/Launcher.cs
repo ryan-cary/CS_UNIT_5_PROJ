@@ -15,9 +15,10 @@ public class Launcher : MonoBehaviour
     [SerializeField][Range(0,0.5f)] private float bombChance;
 
     [Header("Spawn Parameters")] 
-    [SerializeField] private float spawnFrequency = 1.0f;
+    [SerializeField] private float maxSpawnFrequency = 1.0f;
     [SerializeField] private float verticalOffset = -1.0f;
     [SerializeField] private float horizontalPadding = 1.0f;
+    private float _spawnFrequency = 1.0f;
 
     [Header("Launch Parameters")]
     [SerializeField] private float maxForce = 15.0f;
@@ -34,8 +35,11 @@ public class Launcher : MonoBehaviour
         {
             _timer += Time.deltaTime;
 
-            if (_timer > spawnFrequency)
+            if (_timer > _spawnFrequency)
+            {
                 SpawnFruit(GetFruitToSpawn());
+                _spawnFrequency = Random.Range(0, maxSpawnFrequency);
+            }
         }
     }
 
