@@ -16,7 +16,7 @@ public class ScoreManager : Singleton<ScoreManager>
             leaderboard.POST_SCORE(TimedModeIDs.MostFruits, _fruitSliced);
             leaderboard.POST_SCORE(TimedModeIDs.TotalFruits, _fruitSliced);
             leaderboard.POST_SCORE(TimedModeIDs.TotalBombs, _bombsSliced);
-            if (_fruitMissed == 0)
+            if (_fruitMissed == 0 && _bombsSliced == 0)
                 leaderboard.POST_SCORE(TimedModeIDs.PerfectGames, 1);
         }
         catch (Exception e)
