@@ -42,15 +42,18 @@ public class BannerAdExample : MonoBehaviour
   // Implement a method to call when the Load Banner button is clicked:
   public void LoadBanner()
   {
-      // Set up options to notify the SDK of load events:
-      BannerLoadOptions options = new BannerLoadOptions
+      if (!Advertisement.Banner.isLoaded)
       {
-          loadCallback = OnBannerLoaded,
-          errorCallback = OnBannerError
-      };
+          // Set up options to notify the SDK of load events:
+          BannerLoadOptions options = new BannerLoadOptions
+          {
+              loadCallback = OnBannerLoaded,
+              errorCallback = OnBannerError
+          };
 
-      // Load the Ad Unit with banner content:
-      Advertisement.Banner.Load(_adUnitId, options);
+          // Load the Ad Unit with banner content:
+          Advertisement.Banner.Load(_adUnitId, options);
+      }
   }
 
   // Implement code to execute when the loadCallback event triggers:
