@@ -1,20 +1,11 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 using TMPro;
 using Unity.Services.Core;
 
-public enum GameMode
-{
-    Timed,
-    Endless
-}
 
 public class LeaderboardManager : MonoBehaviour
 {
-    private GameMode _chosenGameMode;
-
-    private UnityEvent<GameMode> _onGameModeUpdated;
 
     [SerializeField] private ScoreLeaderboard leaderboard;
     
@@ -159,7 +150,6 @@ public class LeaderboardManager : MonoBehaviour
     public void ChangeChosenGameMode()
     {
         int index = modeSelector.value;
-        _chosenGameMode = (GameMode)index;
 
         switch (index)
         {
