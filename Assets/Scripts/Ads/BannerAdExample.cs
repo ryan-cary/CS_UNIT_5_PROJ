@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
+/// <summary>
+/// This code was taken directly from Unity's Advertisement Legacy Package documentation
+/// </summary>
 public class BannerAdExample : MonoBehaviour
 {
   // For the purpose of this example, these buttons are for functionality testing:

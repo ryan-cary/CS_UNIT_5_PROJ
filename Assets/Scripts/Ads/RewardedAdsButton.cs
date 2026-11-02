@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
+/// <summary>
+/// This code was taken directly from Unity's Advertisement Legacy Package Documentation
+/// </summary>
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
   [SerializeField] Button _showAdButton;
