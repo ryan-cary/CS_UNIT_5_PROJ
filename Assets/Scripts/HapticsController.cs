@@ -122,5 +122,25 @@ public class HapticsController : Singleton<HapticsController>
         };
     }
 
+    public void SendNotification(string title, string message)
+    {
+        AndroidNotification notif = new AndroidNotification()
+        {
+            Title = title,
+            Text = message,
+            FireTime = DateTime.Now
+        };
+    }
+
+    public void SendHighScoreNotification(int score)
+    {
+        AndroidNotification highScoreNotif = new AndroidNotification()
+        {
+            Title = "High Score!",
+            Text = $"You've achieved a high score of {score}! Way to go!",
+            FireTime = DateTime.Now
+        };
+    }
+
     #endregion
 }

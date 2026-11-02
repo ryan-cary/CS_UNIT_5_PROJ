@@ -53,6 +53,11 @@ public class ScoreLeaderboard : Singleton<ScoreLeaderboard>
         string json = JsonConvert.SerializeObject(scoreResponse);
         ScoreboardEntry result = JsonUtility.FromJson<ScoreboardEntry>(json);
 
+        if (leaderboardID == TimedModeIDs.HighScore && result.score.Equals(score))
+        {
+            HapticsController.Instance.SendHighScoreNotification(score);
+        }
+
         //Debug.Log($"Posted score {result.score} to leaderboard {leaderboardID} for player {result.playerName}");
     }
 
