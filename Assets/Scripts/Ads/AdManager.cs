@@ -1,4 +1,4 @@
-
+using UnityEngine;
 using UnityEngine.Advertisements;
 
 public struct AdvertisementIDs
@@ -10,7 +10,7 @@ public struct AdvertisementIDs
     public const string REWARD_IOS = "Rewarded_iOS";
 }
 
-public class AdManager : Singleton<AdManager>
+public class AdManager : Singleton<AdManager>, IUnityAdsInitializationListener
 {
     private string _bannerAdUnitId = null; // This will remain null for unsupported platforms.
     private string _rewardAdUnitId = null;
@@ -32,7 +32,8 @@ public class AdManager : Singleton<AdManager>
         _rewardAdUnitId = AdvertisementIDs.REWARD_ANDROID;
         #endif
         
-        Advertisement.Initialize(AdvertisementIDs.GAME_ID);
+        // Initialize ads in test mode for expediency of debugging
+        Advertisement.Initialize(AdvertisementIDs.GAME_ID, true, this);
     }
 
     private void Start()
@@ -63,5 +64,13 @@ public class AdManager : Singleton<AdManager>
     {
         PlayRewardedAd();
         DisplayBannerAd();
+    }
+
+    public void OnInitializationComplete()
+    { }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.LogError($"Ad initialization failed: {message}");
     }
 }
