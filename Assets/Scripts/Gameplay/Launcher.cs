@@ -23,6 +23,8 @@ public class Launcher : MonoBehaviour
     [SerializeField] private float maxForce = 15.0f;
     [SerializeField] private float minForce = 8.0f;
     [SerializeField] private float maxAngle = 10.0f;
+    [SerializeField] private float minRotationSpeed = 10f;
+    [SerializeField] private float maxRotationSpeed = 180f;
 
     private float _timer;
 
@@ -76,9 +78,19 @@ public class Launcher : MonoBehaviour
         float force = Random.Range(minForce, maxForce);
         
         // Launch prefab
-        fruit.GetComponent<Rigidbody2D>().AddForce(launchAngle * force, ForceMode2D.Impulse);
+        Rigidbody2D fruitRb = fruit.GetComponent<Rigidbody2D>();
+        fruitRb.AddForce(launchAngle * force, ForceMode2D.Impulse);
+        fruitRb.angularVelocity = GetRandomRotationSpeed();
 
         _timer = 0;
+    }
+
+    private float GetRandomRotationSpeed()
+    {
+        float speed = Random.Range(minRotationSpeed, maxRotationSpeed);
+        int direction = Random.Range(-1, 2);
+
+        return speed * direction;
     }
 
     private bool IsOnLeftSide(GameObject fruit)
