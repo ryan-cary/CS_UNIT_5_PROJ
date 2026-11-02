@@ -174,13 +174,13 @@ TextureImporter:
       name: dan_pineapple_0
       rect:
         serializedVersion: 2
-        x: 75
-        y: 57
-        width: 445
-        height: 483
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 0
+        y: 13
+        width: 303
+        height: 469
+      alignment: 9
+      pivot: {x: 0.5205923, y: 0.26267526}
+      border: {x: 44, y: 0, z: 30, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: dan_pineapple_1
       rect:
         serializedVersion: 2
-        x: 484
-        y: 498
-        width: 10
-        height: 6
+        x: 302
+        y: 481
+        width: 1
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: dan_pineapple_2
       rect:
         serializedVersion: 2
-        x: 497
-        y: 499
-        width: 14
-        height: 10
+        x: 302
+        y: 481
+        width: 1
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: dan_pineapple_3
       rect:
         serializedVersion: 2
-        x: 497
-        y: 497
-        width: 6
-        height: 6
+        x: 302
+        y: 481
+        width: 1
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: dan_pineapple_4
       rect:
         serializedVersion: 2
-        x: 505
-        y: 502
-        width: 6
-        height: 7
+        x: 302
+        y: 481
+        width: 1
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: dan_pineapple_5
       rect:
         serializedVersion: 2
-        x: 488
+        x: 302
         y: 475
-        width: 12
-        height: 10
+        width: 1
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: dan_pineapple_6
       rect:
         serializedVersion: 2
-        x: 495
+        x: 302
         y: 479
-        width: 8
-        height: 15
+        width: 1
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: dan_pineapple_7
       rect:
         serializedVersion: 2
-        x: 491
+        x: 302
         y: 311
-        width: 7
+        width: 1
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -350,12 +350,12 @@ TextureImporter:
       name: dan_pineapple_8
       rect:
         serializedVersion: 2
-        x: 493
+        x: 302
         y: 293
-        width: 7
+        width: 1
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: dan_pineapple_9
       rect:
         serializedVersion: 2
-        x: 499
+        x: 302
         y: 297
-        width: 10
+        width: 1
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: dan_pineapple_10
       rect:
         serializedVersion: 2
-        x: 493
+        x: 302
         y: 278
-        width: 8
+        width: 1
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -416,12 +416,12 @@ TextureImporter:
       name: dan_pineapple_11
       rect:
         serializedVersion: 2
-        x: 497
+        x: 302
         y: 274
-        width: 6
+        width: 1
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -438,12 +438,12 @@ TextureImporter:
       name: dan_pineapple_12
       rect:
         serializedVersion: 2
-        x: 502
+        x: 302
         y: 277
-        width: 6
+        width: 1
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,77 +456,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: dan_pineapple_13
-      rect:
-        serializedVersion: 2
-        x: 507
-        y: 280
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38fef8b1591f1f1c0800000000000000
-      internalID: -4471527332287352957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dan_pineapple_14
-      rect:
-        serializedVersion: 2
-        x: 493
-        y: 268
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eccd4ab7efbc51e30800000000000000
-      internalID: 4473706098718989518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dan_pineapple_15
-      rect:
-        serializedVersion: 2
-        x: 495
-        y: 128
-        width: 11
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9bc1a73fc004a21a0800000000000000
-      internalID: -6833579060212654919
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9fc6f42aecd350440b1e3b17301916b9
     internalID: 0
     vertices: []
     indices: 

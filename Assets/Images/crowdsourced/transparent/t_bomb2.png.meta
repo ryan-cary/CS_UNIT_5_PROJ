@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 350de352a114ea2499fef01502f9a6d7
+guid: 03548543fbc03e844aa429fbca74ba9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7414050277832811422
-    second: t_lemon_0
+      213: 1043197203074078692
+    second: t_bomb2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: t_lemon_0
+      name: t_bomb2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 301
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 11
+        y: 22
+        width: 182
+        height: 292
+      alignment: 9
+      pivot: {x: 0.54480946, y: 0.27423856}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e936c15427ff3e660800000000000000
-      internalID: 7414050277832811422
+      spriteID: 4e759ef345e2a7e00800000000000000
+      internalID: 1043197203074078692
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fd5ba4f12f104e44db2eee397e899cda
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      t_lemon_0: 7414050277832811422
+      t_bomb2_0: 1043197203074078692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
