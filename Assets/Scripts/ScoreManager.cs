@@ -72,6 +72,7 @@ public class ScoreManager : Singleton<ScoreManager>
         onFruitMissed?.RemoveAllListeners();
         onFruitSliced?.RemoveAllListeners();
         onBombSliced?.RemoveAllListeners();
+        onGameOver?.RemoveAllListeners();
     }
 
     public void Initialize()
@@ -151,5 +152,12 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         Initialize();
         GameManager.Instance.ChangeGameState(GameState.Play);
+    }
+
+    public void AddTime(float timeToAdd)
+    {
+        _timeRemaining += timeToAdd;
+        if (GameManager.Instance.State != GameState.Play)
+            GameManager.Instance.ChangeGameState(GameState.Play);
     }
 }

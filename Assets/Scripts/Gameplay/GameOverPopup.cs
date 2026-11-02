@@ -10,6 +10,7 @@ public class GameOverPopup : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private Button menuButton;
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button continueButton;
 
     [Header("Text Fields")] 
     [SerializeField] private TMP_Text fruitsText;
@@ -21,11 +22,12 @@ public class GameOverPopup : MonoBehaviour
     {
         gameOverUI.SetActive(false);
         
-        ScoreManager.Instance.onGameOver.AddListener(EnableGameOverScreen);
-        ScoreManager.Instance.onGameOver.AddListener(UpdateFields);
+        ScoreManager.Instance.onGameOver?.AddListener(EnableGameOverScreen);
+        ScoreManager.Instance.onGameOver?.AddListener(UpdateFields);
         
         menuButton.onClick.AddListener(GameManager.Instance.LoadMenu);
         replayButton.onClick.AddListener(ScoreManager.Instance.PlayAgain);
+        continueButton.onClick.AddListener(AdManager.Instance.PlayRewardedAd);
     }
 
     private void UpdateFields()
@@ -39,5 +41,16 @@ public class GameOverPopup : MonoBehaviour
     private void EnableGameOverScreen()
     {
         gameOverUI.gameObject.SetActive(true);
+        //FindFirstObjectByType<RewardedAdsButton>().LoadAd();
+    }
+
+    private void OnDestroy()
+    {
+        ScoreManager.Instance.onGameOver?.RemoveListener(EnableGameOverScreen);
+        ScoreManager.Instance.onGameOver?.RemoveListener(UpdateFields);
+
+        menuButton.onClick.RemoveAllListeners();
+        replayButton.onClick.RemoveAllListeners();
+        continueButton.onClick.RemoveAllListeners();
     }
 }
