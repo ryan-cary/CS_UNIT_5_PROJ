@@ -45,8 +45,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Launcher
   launchableObjects:
-  - prefab: {fileID: 8925459228137602254, guid: 953c5186945d67643a545e5b4237ca75, type: 3}
-    spawnWeight: 100
+  - prefab: {fileID: 3500571121239791667, guid: 428e8daa6029b9844b47893d2377e72f, type: 3}
+    spawnWeight: 15
+  - prefab: {fileID: 3980625002100700418, guid: 6a28b72c42be4b04cbbbd1bade03cce5, type: 3}
+    spawnWeight: 25
+  - prefab: {fileID: 4498121613495133041, guid: 82db203d56db38448ae78b7179649328, type: 3}
+    spawnWeight: 25
+  - prefab: {fileID: 8965019930151164401, guid: a3f31b97d0654a64e9de4478a2e45a89, type: 3}
+    spawnWeight: 25
+  - prefab: {fileID: 1758964576314429165, guid: 1eb312bf0fcfb49469bc854b32bf3139, type: 3}
+    spawnWeight: 15
+  - prefab: {fileID: 6264327069622138313, guid: 1de64c0c2e2fc174b9f0a046553f2dc1, type: 3}
+    spawnWeight: 25
+  - prefab: {fileID: 73866436400267915, guid: 2da1023e4d93448419f548254c82f8c9, type: 3}
+    spawnWeight: 25
+  - prefab: {fileID: 6998370754158883436, guid: ff7f6681069763c4f971cb139a9fd8f8, type: 3}
+    spawnWeight: 5
+  - prefab: {fileID: 9113691399618887538, guid: 7b1b59ef79ecfc048a8a31c9c6a6729e, type: 3}
+    spawnWeight: 20
+  - prefab: {fileID: 1912096962583049632, guid: d4832593919486647b1ea0e3a9645728, type: 3}
+    spawnWeight: 25
+  - prefab: {fileID: 507336478690959869, guid: a0cff8b233dc01d43a179322a1033f9b, type: 3}
+    spawnWeight: 25
   bombPrefab: {fileID: 6325808052969685570, guid: 5c61379d9dfd3b8468d72304a32f390a, type: 3}
   bombChance: 0.1
   spawnFrequency: 1
@@ -55,3 +75,5 @@ MonoBehaviour:
   maxForce: 15
   minForce: 8
   maxAngle: 20
+  minRotationSpeed: 15
+  maxRotationSpeed: 180
