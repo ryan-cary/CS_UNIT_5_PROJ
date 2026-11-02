@@ -34,4 +34,10 @@ public class HUDManager : MonoBehaviour
     {
         HUD.gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        ScoreManager.Instance.onGameOver?.RemoveListener(HideHUD);
+        ScoreManager.Instance.onFruitSliced?.RemoveListener(UpdateScore);
+    }
 }
