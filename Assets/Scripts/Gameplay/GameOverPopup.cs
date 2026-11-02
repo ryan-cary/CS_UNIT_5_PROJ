@@ -10,6 +10,7 @@ public class GameOverPopup : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private Button menuButton;
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button continueButton;
 
     [Header("Text Fields")] 
     [SerializeField] private TMP_Text fruitsText;
@@ -26,6 +27,7 @@ public class GameOverPopup : MonoBehaviour
         
         menuButton.onClick.AddListener(GameManager.Instance.LoadMenu);
         replayButton.onClick.AddListener(ScoreManager.Instance.PlayAgain);
+        continueButton.onClick.AddListener(AdManager.Instance.PlayRewardedAd);
     }
 
     private void UpdateFields()
@@ -42,13 +44,6 @@ public class GameOverPopup : MonoBehaviour
         //FindFirstObjectByType<RewardedAdsButton>().LoadAd();
     }
 
-    public void playRewardedAd()
-    {
-        //Unity legacy ads is deprecated so we're doing this instead of rewarded ads
-        ScoreManager.Instance.AddTime(30);
-        HapticsController.Instance.SendToast("Legacy ads are deprecated, but we'll give you time anyway!");
-    }
-
     private void OnDestroy()
     {
         ScoreManager.Instance.onGameOver?.RemoveListener(EnableGameOverScreen);
@@ -56,5 +51,6 @@ public class GameOverPopup : MonoBehaviour
 
         menuButton.onClick.RemoveAllListeners();
         replayButton.onClick.RemoveAllListeners();
+        continueButton.onClick.RemoveAllListeners();
     }
 }
