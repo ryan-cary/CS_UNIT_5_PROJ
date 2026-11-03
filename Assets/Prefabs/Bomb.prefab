@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ecd840db8bf356458a80c53d0c3a0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
+  explosionPrefab: {fileID: 6511165354997805267, guid: 1b260f5f167aec14497efcb7df5f1dd8, type: 3}
 --- !u!50 &8090399058996566533
 Rigidbody2D:
   serializedVersion: 5

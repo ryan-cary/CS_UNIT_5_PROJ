@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bomb : SliceableObject
 {
+    [SerializeField] private GameObject explosionPrefab;
+    
     public override void OnSliced()
     {
         // Explosion sound effect / animation
@@ -16,6 +18,6 @@ public class Bomb : SliceableObject
         HapticsController.Instance.Vibrate(200);
         
         //Create visual effect
-        //TODO visual effect
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
     }
 }
