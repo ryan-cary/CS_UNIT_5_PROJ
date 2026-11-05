@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
-using Unity.Notifications.Android;
 using UnityEngine;
+
+#if UNITY_ANDROID
+using Unity.Notifications.Android;
 using UnityEngine.Android;
+#endif
 
 public class HapticsController : Singleton<HapticsController>
 {
@@ -28,7 +31,9 @@ public class HapticsController : Singleton<HapticsController>
     // Unity Vibration
     public void Vibrate()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR        
         Handheld.Vibrate();
+#endif
     }
 
     public void Vibrate(int strength)
@@ -73,6 +78,7 @@ public class HapticsController : Singleton<HapticsController>
 
     private void InitializeNotificationsChannel()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         AndroidNotificationChannel channel = new AndroidNotificationChannel()
         {
             Id = ChannelId,
@@ -87,6 +93,7 @@ public class HapticsController : Singleton<HapticsController>
         {
             StartCoroutine(RequestPermission());
         }
+#endif
     }
 
     public void RequestNotificationPermissions()
@@ -96,6 +103,7 @@ public class HapticsController : Singleton<HapticsController>
 
     private IEnumerator RequestPermission()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         PermissionRequest request = new PermissionRequest();
         while (request.Status == PermissionStatus.RequestPending)
         {
@@ -103,10 +111,14 @@ public class HapticsController : Singleton<HapticsController>
         }
 
         Debug.Log("Notification Permission: " + request.Status);
+#else
+        return null;
+#endif
     }
 
     public void SendToast(string message)
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         AndroidJavaObject activity = AndroidApplication.currentActivity;
         
         activity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
@@ -119,36 +131,43 @@ public class HapticsController : Singleton<HapticsController>
                 }
             }
             ));
+#endif
     }
 
     public void SendNotification()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         AndroidNotification notification = new AndroidNotification()
         {
             Title = "Debug Test",
             Text = "This is a test! Do not be alarmed.",
             FireTime = DateTime.Now.AddSeconds(5)
         };
+#endif
     }
 
     public void SendNotification(string title, string message)
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         AndroidNotification notif = new AndroidNotification()
         {
             Title = title,
             Text = message,
             FireTime = DateTime.Now
         };
+#endif
     }
 
     public void SendHighScoreNotification(int score)
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         AndroidNotification highScoreNotif = new AndroidNotification()
         {
             Title = "High Score!",
             Text = $"You've achieved a high score of {score}! Way to go!",
             FireTime = DateTime.Now
         };
+#endif
     }
 
     #endregion
